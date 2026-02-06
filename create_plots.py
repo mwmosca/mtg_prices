@@ -8,7 +8,7 @@ def main() -> None:
     PROJECT_DIRECTORY  = Path(__file__).resolve().parent
     PRICE_HISTORY_PATH = Path(PROJECT_DIRECTORY, 'data',    'price_history.csv')
     COLLECTION_PATH    = Path(PROJECT_DIRECTORY, 'data',    'collection.csv')
-    CHART_PATH         = Path(PROJECT_DIRECTORY, 'reports', 'charts')
+    CHART_PATH         = Path(PROJECT_DIRECTORY, 'charts')
 
     MAX_X_TICKS = 10
 
