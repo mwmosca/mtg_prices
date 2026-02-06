@@ -14,7 +14,7 @@ def main() -> None:
 
     ILLEGAL_FILENAME_CHARACTERS = ':/'
 
-    price_history_df = pd.read_csv(PRICE_HISTORY_PATH)
+    price_history_df = pd.read_csv(PRICE_HISTORY_PATH, parse_dates=['date'])
     price_history_df['id2'] = price_history_df.id + '-' + price_history_df.foil.astype(str) + '-' + price_history_df.etched.astype(str)
 
     collection_df = pd.read_csv(COLLECTION_PATH)
