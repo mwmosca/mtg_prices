@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MTG Card Price Chart - GitHub Pages</title>
+
+  <!-- Chart.js CDN (latest 4.x) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <style>
+    body {font-family: Arial, sans-serif; max-width: 900px; margin: auto; padding: 20px;}
+    h2 {margin-top: 0;}
+    .controls {margin-bottom: 20px;}
+  </style>
+</head>
+
+<body>
+  <h2>Magic: The Gathering Card Prices</h2>
+
+  <!-- Drop-down to choose a card -->
+  <div class="controls">
+    <label for="cardSelect">Select a card:</label>
+    <select id="cardSelect">
+      <option value="Lightning Bolt">Lightning Bolt</option>
+      <option value="Black Lotus">Black Lotus</option>
+      <option value="Tarmogoyf">Tarmogoyf</option>
+      <!-- Add more <option> elements for additional cards -->
+    </select>
+  </div>
+
+  <!-- Canvas where the chart will be drawn -->
+  <canvas id="priceChart" width="800" height="400"></canvas>
+
+  <script>
+    // ------------------------------------------------------------
+    // 1️⃣  Sample price data - replace with your real data source
+    // ------------------------------------------------------------
+    const priceData = {
+      "Lightning Bolt": {
+        labels: ["2024-01-01","2024-02-01","2024-03-01","2024-04-01","2024-05-01"],
+        prices: [2.10, 2.25, 2.40, 2.35, 2.50]
+      },
+      "Black Lotus": {
+        labels: ["2024-01-01","2024-02-01","2024-03-01","2024-04-01","2024-05-01"],
+        prices: [25000, 25500, 26000, 25800, 26200]
+      },
+      "Tarmogoyf": {
+        labels: ["2024-01-01","2024-02-01","2024-03-01","2024-04-01","2024-05-01"],
+        prices: [45, 48, 46, 49, 51]
+      }
+      // Add further cards here …
+    };
+
+    // ------------------------------------------------------------
+    // 2️⃣  Initialise the chart with the first card in the list
+    // ------------------------------------------------------------
+    const ctx = document.getElementById('priceChart').getContext('2d');
+
+    // Helper to build a dataset object for Chart.js
+    function makeDataset(cardName) {
+      const card = priceData[cardName];
+      return {
+        label: `${cardName} price`,
+        data: card.prices,
+        borderColor: 'rgba(54, 162, 235, 1)',
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        tension: 0.3,
+        fill: true,
+        pointRadius: 5,
+        pointHoverRadius: 7
+      };
+    }
+
+    // Initial chart configuration
+    const config = {
+      type: 'line',
+      data: {
+        labels: priceData["Lightning Bolt"].labels,   // default labels
+        datasets: [makeDataset("Lightning Bolt")]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'top' },
+          title: {
+            display: true,
+            text: 'Card Price Over Time'
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: false,
+            title: { display: true, text: 'USD ($)' }
+          },
+          x: {
+            title: { display: true, text: 'Date' }
+          }
+        }
+      }
+    };
+
+    const priceChart = new Chart(ctx, config);
+
+    // ------------------------------------------------------------
+    // 3️⃣  React to drop-down changes
+    // ------------------------------------------------------------
+    document.getElementById('cardSelect').addEventListener('change', (e) => {
+      const selectedCard = e.target.value;
+      const cardInfo = priceData[selectedCard];
+
+      // Update labels (dates) and dataset values
+      priceChart.data.labels = cardInfo.labels;
+      priceChart.data.datasets[0] = makeDataset(selectedCard);
+      priceChart.update();   // redraw the chart
+    });
+  </script>
+</body>
+</html>
