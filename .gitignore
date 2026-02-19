@@ -1,3 +1,7 @@
 __pycache__
 credentials
 .env
+
+data/cards.csv
+reports/card_report.csv
+reports/missing_card_report.csv
