@@ -169,6 +169,7 @@ fb110a55-c8f9-4627-82c2-edb10db4f380,Diffusion Sliver,Magic 2015,50,https://api.
 bceab6b3-6b64-4964-a501-ce806a6c13ad,Dispel,Battle for Zendikar,76,https://api.scryfall.com/cards/bceab6b3-6b64-4964-a501-ce806a6c13ad,0,0,2
 08d4a8d7-c136-472f-8146-a1100701ca4f,Dispel,Return to Ravnica,36,https://api.scryfall.com/cards/08d4a8d7-c136-472f-8146-a1100701ca4f,0,0,1
 8ab850c5-6f5e-41b7-ab52-094579caca12,Displace,Eldritch Moon,55,https://api.scryfall.com/cards/8ab850c5-6f5e-41b7-ab52-094579caca12,0,0,1
+3171b16f-cd67-416d-be5e-5d9cccb8d0a0,District Mascot,Aetherdrift,158,https://api.scryfall.com/cards/3171b16f-cd67-416d-be5e-5d9cccb8d0a0,0,0,1
 5d6b5054-2224-4f68-9d82-3ed17c5dacc4,Dovin's Veto,War of the Spark,193,https://api.scryfall.com/cards/5d6b5054-2224-4f68-9d82-3ed17c5dacc4,0,0,1
 9d243099-94b1-4571-96af-4c5a34241911,Drag to the Bottom,Dominaria United,91,https://api.scryfall.com/cards/9d243099-94b1-4571-96af-4c5a34241911,0,0,1
 f1b743b8-2938-4251-b49f-157a192e30ab,Drag to the Bottom (Promo),Dominaria United Promos,91p,https://api.scryfall.com/cards/f1b743b8-2938-4251-b49f-157a192e30ab,0,0,1
@@ -232,6 +233,7 @@ e4a2d2c6-8eaa-4760-b620-921b807baa2e,"Feather, the Redeemed",War of the Spark,19
 d72afb21-7bb0-4fd8-a529-ada92a654f61,Field of Ruin,Ixalan,254,https://api.scryfall.com/cards/d72afb21-7bb0-4fd8-a529-ada92a654f61,0,0,4
 a12b16b0-f75f-42d8-9b24-947c1908e0f7,Fires of Invention,Throne of Eldraine,125,https://api.scryfall.com/cards/a12b16b0-f75f-42d8-9b24-947c1908e0f7,0,0,1
 b939b0c9-794c-4190-84db-dac325dce8da,Fires of Invention (Promo),Throne of Eldraine Promos,125s,https://api.scryfall.com/cards/b939b0c9-794c-4190-84db-dac325dce8da,1,0,1
+71a98efb-9b0a-496b-ac21-8d70527ea544,Flare of Denial,Modern Horizons 3,62,https://api.scryfall.com/cards/71a98efb-9b0a-496b-ac21-8d70527ea544,0,0,1
 cf0f88d9-681c-4152-bb45-628850717430,Flesh Carver,Commander 2014,22,https://api.scryfall.com/cards/cf0f88d9-681c-4152-bb45-628850717430,0,0,1
 6f84f0ae-ee67-490b-9424-60ee2acb4a12,Flickerwisp,Archenemy: Nicol Bolas,9,https://api.scryfall.com/cards/6f84f0ae-ee67-490b-9424-60ee2acb4a12,0,0,1
 dcfcf9a7-bad6-4240-8e43-a6a81fc4fbd0,Flickerwisp,Modern Masters 2017,6,https://api.scryfall.com/cards/dcfcf9a7-bad6-4240-8e43-a6a81fc4fbd0,0,0,3
@@ -561,7 +563,7 @@ fc98895a-bfc3-4b0b-a8a6-2c202f6edf0d,Rift Bolt,Iconic Masters,143,https://api.sc
 fbfd3898-cb06-4bb9-9d52-b319e1fa2217,Rings of Brighthearth,Lorwyn,259,https://api.scryfall.com/cards/fbfd3898-cb06-4bb9-9d52-b319e1fa2217,0,0,0
 101f135f-1404-4333-946e-62d3aa919a62,Rip Apart (Promo),Strixhaven: School of Mages,381,https://api.scryfall.com/cards/101f135f-1404-4333-946e-62d3aa919a62,1,0,1
 947fc270-11e3-46cd-9086-e880a5845c79,Rishadan Cutpurse,Mercadian Masques,93,https://api.scryfall.com/cards/947fc270-11e3-46cd-9086-e880a5845c79,0,0,1
-477a1f53-5cdf-4b45-b584-2e36b31a3fdb,Rishadan Port,Mercadian Masques,324,https://api.scryfall.com/cards/477a1f53-5cdf-4b45-b584-2e36b31a3fdb,0,0,1
+477a1f53-5cdf-4b45-b584-2e36b31a3fdb,Rishadan Port,Mercadian Masques,324,https://api.scryfall.com/cards/477a1f53-5cdf-4b45-b584-2e36b31a3fdb,0,0,0
 d2507bc2-da17-4e46-b4c5-ba0080ce2c6f,Rishadan Port,Masters 25,246,https://api.scryfall.com/cards/d2507bc2-da17-4e46-b4c5-ba0080ce2c6f,1,0,1
 d2507bc2-da17-4e46-b4c5-ba0080ce2c6f,Rishadan Port,Masters 25,246,https://api.scryfall.com/cards/d2507bc2-da17-4e46-b4c5-ba0080ce2c6f,0,0,2
 51d8f1fa-ca92-4e2e-91e8-195bdad82def,"Risona, Asari Commander",Kamigawa: Neon Dynasty,233,https://api.scryfall.com/cards/51d8f1fa-ca92-4e2e-91e8-195bdad82def,0,0,1
@@ -744,6 +746,7 @@ c29e4a61-8f84-4c19-909d-6aebb3b9ab9b,Traveler's Cloak,Conspiracy,109,https://api
 6c180888-6acd-401b-815a-6ed434482681,Tribute Mage,Modern Horizons,73,https://api.scryfall.com/cards/6c180888-6acd-401b-815a-6ed434482681,0,0,1
 cb52e7ba-5340-44e1-9b63-775e1f387925,Trinket Mage,Scars of Mirrodin,48,https://api.scryfall.com/cards/cb52e7ba-5340-44e1-9b63-775e1f387925,0,0,0
 160d3bf1-5f8b-431c-bb4e-a6874c69817a,Turn to Mist,Ultimate Masters,224,https://api.scryfall.com/cards/160d3bf1-5f8b-431c-bb4e-a6874c69817a,1,0,1
+5479009c-9da5-4646-9894-fb9ec73dc9a9,Twenty-Toed Toad,Bloomburrow Commander,16,https://api.scryfall.com/cards/5479009c-9da5-4646-9894-fb9ec73dc9a9,0,0,1
 9f8723f6-96b1-4441-8a57-435fb82d6db4,Typhoid Rats,Magic 2015,118,https://api.scryfall.com/cards/9f8723f6-96b1-4441-8a57-435fb82d6db4,0,0,1
 3b6e5956-f795-451b-bb24-56462d1ced27,Umezawa's Jitte,Betrayers of Kamigawa,163,https://api.scryfall.com/cards/3b6e5956-f795-451b-bb24-56462d1ced27,0,0,1
 3db40f2b-c2b1-4dfd-9fa1-c335664ee45f,Undergrowth Champion (Promo),Battle for Zendikar Promos,197s,https://api.scryfall.com/cards/3db40f2b-c2b1-4dfd-9fa1-c335664ee45f,1,0,1
@@ -757,6 +760,7 @@ b331b231-f31f-479f-80a9-f32c64d35096,Unstable Obelisk,Commander 2014,58,https://
 10a544d7-ead7-42fd-a35a-c1b672771d5b,Urza Assembles the Titans,Dominaria United,37,https://api.scryfall.com/cards/10a544d7-ead7-42fd-a35a-c1b672771d5b,0,0,1
 c1e0f201-42cb-46a1-901a-65bb4fc18f6c,Urza's Saga,Modern Horizons 2,259,https://api.scryfall.com/cards/c1e0f201-42cb-46a1-901a-65bb4fc18f6c,0,0,4
 9029155b-b397-498a-ba34-0e6d3fbde968,"Vadrik, Astral Archmage (Promo)",Innistrad: Midnight Hunt Promos,248p,https://api.scryfall.com/cards/9029155b-b397-498a-ba34-0e6d3fbde968,1,0,1
+1c744764-3b54-49a0-aa68-1fb22d8162a9,Valley Floodcaller (Showcase),Bloomburrow,308,https://api.scryfall.com/cards/1c744764-3b54-49a0-aa68-1fb22d8162a9,0,0,1
 f142d6c1-90f6-49d6-861e-36e9a6fac958,Valor's Flagship (Full Art),Aetherdrift,298,https://api.scryfall.com/cards/f142d6c1-90f6-49d6-861e-36e9a6fac958,1,0,1
 05934d59-7e98-4fff-8ccb-70cd1a61c6fd,Vampire // Treasure (Promo),Friday Night Magic 2017,10,https://api.scryfall.com/cards/05934d59-7e98-4fff-8ccb-70cd1a61c6fd,1,0,2
 47c8e6c4-450b-4f8b-b897-5808fe935a90,Vampire Hexmage,Commander 2014,168,https://api.scryfall.com/cards/47c8e6c4-450b-4f8b-b897-5808fe935a90,0,0,1
@@ -769,6 +773,7 @@ f142d6c1-90f6-49d6-861e-36e9a6fac958,Valor's Flagship (Full Art),Aetherdrift,298
 15faa763-b897-4e86-b094-73f3236291a9,Verdant Catacombs,Modern Masters 2017,249,https://api.scryfall.com/cards/15faa763-b897-4e86-b094-73f3236291a9,0,0,4
 23633024-04aa-4b84-b80d-910ad4527537,Victimize,Commander 2014,169,https://api.scryfall.com/cards/23633024-04aa-4b84-b80d-910ad4527537,0,0,1
 e8bd8b10-de86-4bb6-b49f-6ccb5297c81c,Vines of Vastwood,Zendikar,193,https://api.scryfall.com/cards/e8bd8b10-de86-4bb6-b49f-6ccb5297c81c,0,0,1
+df606cf5-67dc-46f4-8c79-1d2f1d054391,Virtue of Knowledge // Vantress Visions,Wilds of Eldraine,76,https://api.scryfall.com/cards/df606cf5-67dc-46f4-8c79-1d2f1d054391,0,0,1
 6179f847-e334-4f7f-9a4e-0013942a394f,Viscera Seer,Magic 2011,120,https://api.scryfall.com/cards/6179f847-e334-4f7f-9a4e-0013942a394f,0,0,2
 ff3986d7-9b3d-4082-8d72-ce59c9fcd5d5,"Vivien, Champion of the Wilds",War of the Spark,180,https://api.scryfall.com/cards/ff3986d7-9b3d-4082-8d72-ce59c9fcd5d5,0,0,1
 07246783-d475-4f61-99ac-e2b574072349,Voice of Resurgence,Dragon's Maze,114,https://api.scryfall.com/cards/07246783-d475-4f61-99ac-e2b574072349,0,0,1
