@@ -31,4 +31,5 @@ if errorlevel 1 (
 )
 
 echo Success: %COMMIT_MSG%
+pause
 exit /b 0
