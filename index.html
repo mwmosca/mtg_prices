@@ -1,118 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>MTG Card Price Chart - GitHub Pages</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic: The Gathering Price Tracker</title>
+    
+    <!-- Chart.js for visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- PapaParse for CSV parsing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 
-  <!-- Chart.js CDN (latest 4.x) -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-
-  <style>
-    body {font-family: Arial, sans-serif; max-width: 900px; margin: auto; padding: 20px;}
-    h2 {margin-top: 0;}
-    .controls {margin-bottom: 20px;}
-  </style>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 20px; background-color: #f5f5f5; }
+        .container { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #333; margin-bottom: 20px; }
+        .controls { margin-bottom: 20px; display: flex; gap: 15px; align-items: center; }
+        label { font-weight: bold; color: #555; }
+        select { padding: 8px; font-size: 16px; border: 1px solid #ccc; border-radius: 4px; min-width: 200px; }
+        canvas { max-height: 500px; }
+        .loading { color: #666; font-style: italic; }
+        .error { color: #d32f2f; font-weight: bold; }
+    </style>
 </head>
-
 <body>
-  <h2>Magic: The Gathering Card Prices</h2>
 
-  <!-- Drop-down to choose a card -->
-  <div class="controls">
-    <label for="cardSelect">Select a card:</label>
-    <select id="cardSelect">
-      <option value="Lightning Bolt">Lightning Bolt</option>
-      <option value="Black Lotus">Black Lotus</option>
-      <option value="Tarmogoyf">Tarmogoyf</option>
-      <!-- Add more <option> elements for additional cards -->
-    </select>
-  </div>
+<div class="container">
+    <h1>MTG Card Price History</h1>
+    
+    <div class="controls">
+        <label for="cardSelect">Select Card:</label>
+        <select id="cardSelect">
+            <option value="">Loading cards...</option>
+        </select>
+    </div>
 
-  <!-- Canvas where the chart will be drawn -->
-  <canvas id="priceChart" width="800" height="400"></canvas>
+    <canvas id="priceChart"></canvas>
+    <p id="statusMessage" class="loading">Loading data file...</p>
+</div>
 
-  <script>
-    // ------------------------------------------------------------
-    // 1️⃣  Sample price data - replace with your real data source
-    // ------------------------------------------------------------
-    const priceData = {
-      "Lightning Bolt": {
-        labels: ["2024-01-01","2024-02-01","2024-03-01","2024-04-01","2024-05-01"],
-        prices: [2.10, 2.25, 2.40, 2.35, 2.50]
-      },
-      "Black Lotus": {
-        labels: ["2024-01-01","2024-02-01","2024-03-01","2024-04-01","2024-05-01"],
-        prices: [25000, 25500, 26000, 25800, 26200]
-      },
-      "Tarmogoyf": {
-        labels: ["2024-01-01","2024-02-01","2024-03-01","2024-04-01","2024-05-01"],
-        prices: [45, 48, 46, 49, 51]
-      }
-      // Add further cards here …
-    };
+<script>
+    // CONFIGURATION
+    const CSV_FILENAME = 'data/price_history.csv'; 
+    
+    // State variables
+    let allData = [];
+    let myChart = null;
+    let cardIds = new Set();
 
-    // ------------------------------------------------------------
-    // 2️⃣  Initialise the chart with the first card in the list
-    // ------------------------------------------------------------
+    // DOM Elements
+    const cardSelect = document.getElementById('cardSelect');
+    const statusMsg = document.getElementById('statusMessage');
     const ctx = document.getElementById('priceChart').getContext('2d');
 
-    // Helper to build a dataset object for Chart.js
-    function makeDataset(cardName) {
-      const card = priceData[cardName];
-      return {
-        label: `${cardName} price`,
-        data: card.prices,
-        borderColor: 'rgba(54, 162, 235, 1)',
-        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-        tension: 0.3,
-        fill: true,
-        pointRadius: 5,
-        pointHoverRadius: 7
-      };
+    // Function to initialize the chart
+    function initChart() {
+        if (myChart) {
+            myChart.destroy();
+        }
+
+        myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Price ($)',
+                    data: [],
+                    borderColor: '#42a5f5',
+                    backgroundColor: 'rgba(66, 165, 245, 0.1)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.1, // Slight curve to lines
+                    pointRadius: 3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                        callbacks: {
+                            label: function(context) {
+                                return `$${context.parsed.y.toFixed(2)}`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        type: 'category',
+                        title: { display: true, text: 'Date' },
+                        ticks: { maxTicksLimit: 10 } // Limit labels to avoid clutter
+                    },
+                    y: {
+                        beginAtZero: false,
+                        title: { display: true, text: 'Price ($)' },
+                        ticks: {
+                            callback: function(value) { return '$' + value; }
+                        }
+                    }
+                }
+            }
+        });
     }
 
-    // Initial chart configuration
-    const config = {
-      type: 'line',
-      data: {
-        labels: priceData["Lightning Bolt"].labels,   // default labels
-        datasets: [makeDataset("Lightning Bolt")]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: { position: 'top' },
-          title: {
-            display: true,
-            text: 'Card Price Over Time'
-          }
-        },
-        scales: {
-          y: {
-            beginAtZero: false,
-            title: { display: true, text: 'USD ($)' }
-          },
-          x: {
-            title: { display: true, text: 'Date' }
-          }
+    // Function to update the chart with filtered data
+    function updateChart(selectedId) {
+        if (!selectedId) {
+            myChart.data.labels = [];
+            myChart.data.datasets[0].data = [];
+            myChart.update();
+            return;
         }
-      }
-    };
 
-    const priceChart = new Chart(ctx, config);
+        // Filter data for the selected card ID
+        const cardData = allData.filter(row => row.id === selectedId);
 
-    // ------------------------------------------------------------
-    // 3️⃣  React to drop-down changes
-    // ------------------------------------------------------------
-    document.getElementById('cardSelect').addEventListener('change', (e) => {
-      const selectedCard = e.target.value;
-      const cardInfo = priceData[selectedCard];
+        // Sort by date just in case the CSV isn't sorted
+        cardData.sort((a, b) => new Date(a.date) - new Date(b.date));
 
-      // Update labels (dates) and dataset values
-      priceChart.data.labels = cardInfo.labels;
-      priceChart.data.datasets[0] = makeDataset(selectedCard);
-      priceChart.update();   // redraw the chart
+        // Prepare data for Chart.js
+        const labels = cardData.map(d => d.date);
+        const prices = cardData.map(d => parseFloat(d.price));
+
+        myChart.data.labels = labels;
+        myChart.data.datasets[0].data = prices;
+        myChart.data.datasets[0].label = `Card ID: ${selectedId}`;
+        
+        // Optional: Change color based on foil status if you want to distinguish
+        // You could add another dataset here if you wanted to plot Foil vs Non-Foil separately
+        
+        myChart.update();
+    }
+
+    // Load CSV Data
+    Papa.parse(CSV_FILENAME, {
+        download: true,
+        header: true, // Expects first row to be headers: id, foil, etched, price, date
+        skipEmptyLines: true,
+        complete: function(results) {
+            if (results.errors.length > 0) {
+                console.error("CSV Parsing Errors:", results.errors);
+            }
+
+            allData = results.data;
+            
+            if (allData.length === 0) {
+                statusMsg.textContent = "Error: No data found in CSV.";
+                statusMsg.className = "error";
+                return;
+            }
+
+            // Extract unique Card IDs
+            allData.forEach(row => {
+                if (row.id) {
+                    cardIds.add(row.id.toString().trim());
+                }
+            });
+
+            // Populate Dropdown
+            cardSelect.innerHTML = '<option value="">-- Select a Card --</option>';
+            const sortedIds = Array.from(cardIds).sort();
+            
+            sortedIds.forEach(id => {
+                const option = document.createElement('option');
+                option.value = id;
+                option.textContent = id;
+                cardSelect.appendChild(option);
+            });
+
+            // Initialize Chart
+            initChart();
+            statusMsg.textContent = `Loaded ${sortedIds.length} unique cards.`;
+            statusMsg.className = "";
+        },
+        error: function(err) {
+            statusMsg.textContent = "Error loading CSV file. Make sure '" + CSV_FILENAME + "' exists in the root directory.";
+            statusMsg.className = "error";
+            console.error(err);
+        }
     });
-  </script>
+
+    // Event Listener for Dropdown
+    cardSelect.addEventListener('change', (e) => {
+        const selectedId = e.target.value;
+        updateChart(selectedId);
+    });
+
+</script>
+
 </body>
 </html>
