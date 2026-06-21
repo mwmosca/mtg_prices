@@ -96,8 +96,8 @@ e3c2c66c-f7f0-41d5-a805-a129aeaf1b75,Castle Garenbrig,Throne of Eldraine,240,htt
 98cbc1c2-b76e-4da3-aa43-00e10b2ce532,Cathar Commando,Innistrad: Midnight Hunt,10,https://api.scryfall.com/cards/98cbc1c2-b76e-4da3-aa43-00e10b2ce532,0,0,4
 25976cb2-3123-4935-adcc-70e3db51d381,Cavern of Souls,Ultimate Masters,237,https://api.scryfall.com/cards/25976cb2-3123-4935-adcc-70e3db51d381,0,0,3
 ca145c1c-537a-459e-9241-0b95368aaf3a,Caves of Koilos,Magic Origins,245,https://api.scryfall.com/cards/ca145c1c-537a-459e-9241-0b95368aaf3a,0,0,3
-1a02ca71-5e39-4a5f-aaba-a1e3e10a6a3e,Chalice of the Void,Mirrodin,150,https://api.scryfall.com/cards/1a02ca71-5e39-4a5f-aaba-a1e3e10a6a3e,0,0,1
-1e472d9d-4e00-4f01-9daa-559e630403cc,Chalice of the Void,Modern Masters,203,https://api.scryfall.com/cards/1e472d9d-4e00-4f01-9daa-559e630403cc,0,0,1
+1a02ca71-5e39-4a5f-aaba-a1e3e10a6a3e,Chalice of the Void,Mirrodin,150,https://api.scryfall.com/cards/1a02ca71-5e39-4a5f-aaba-a1e3e10a6a3e,0,0,0
+1e472d9d-4e00-4f01-9daa-559e630403cc,Chalice of the Void,Modern Masters,203,https://api.scryfall.com/cards/1e472d9d-4e00-4f01-9daa-559e630403cc,0,0,0
 ea9f9b9a-f5dc-47d5-8d01-baf79842ea65,Charcoal Diamond,Commander 2014,235,https://api.scryfall.com/cards/ea9f9b9a-f5dc-47d5-8d01-baf79842ea65,0,0,1
 dcb94950-3f3e-4876-84f8-d5e4d9cfecee,Charming Prince,Throne of Eldraine,8,https://api.scryfall.com/cards/dcb94950-3f3e-4876-84f8-d5e4d9cfecee,0,0,5
 0a7695cc-7b6b-499d-9f5a-729082fc72e9,Chord of Calling,Magic 2015,172,https://api.scryfall.com/cards/0a7695cc-7b6b-499d-9f5a-729082fc72e9,0,0,3
@@ -145,7 +145,7 @@ c9699446-b6f5-4e6a-a263-059cbf6e4b7e,Death Baron,Core Set 2019,90,https://api.sc
 0e76e0cc-caff-4b15-b550-39e2324c8c95,Defiler of Instinct,Dominaria United,119,https://api.scryfall.com/cards/0e76e0cc-caff-4b15-b550-39e2324c8c95,0,0,1
 0896860c-d028-4193-89a5-97e05c12a1e7,Defiler of Vigor,Dominaria United,160,https://api.scryfall.com/cards/0896860c-d028-4193-89a5-97e05c12a1e7,0,0,1
 3906d538-f1ca-4799-b91c-2e0d2934f241,Delay,Time Spiral Remastered,61,https://api.scryfall.com/cards/3906d538-f1ca-4799-b91c-2e0d2934f241,0,0,1
-be219928-3d0e-4d00-b124-152ce8a8c13b,"Delney, Streetwise Lookout",Murders at Karlov Manor,12,https://api.scryfall.com/cards/be219928-3d0e-4d00-b124-152ce8a8c13b,0,0,1
+be219928-3d0e-4d00-b124-152ce8a8c13b,"Delney, Streetwise Lookout",Murders at Karlov Manor,12,https://api.scryfall.com/cards/be219928-3d0e-4d00-b124-152ce8a8c13b,0,0,0
 11bf83bb-c95b-4b4f-9a56-ce7a1816307a,Delver of Secrets // Insectile Aberration,Innistrad,51,https://api.scryfall.com/cards/11bf83bb-c95b-4b4f-9a56-ce7a1816307a,0,0,0
 952e41e4-2e1e-4977-a33b-6835446af0e6,Demon,Commander 2014 Tokens,12,https://api.scryfall.com/cards/952e41e4-2e1e-4977-a33b-6835446af0e6,0,0,1
 c655cd86-ed24-46e4-95d8-7eb1cf251de4,Demon,Commander 2014 Tokens,13,https://api.scryfall.com/cards/c655cd86-ed24-46e4-95d8-7eb1cf251de4,0,0,5
@@ -196,8 +196,8 @@ c3bc8b9e-4d22-41ba-b593-d383fd301ef9,Eidolon of Rhetoric,Journey into Nyx,10,htt
 c375a022-5b57-496d-a802-e4ea8376e9e4,"Eiganjo, Seat of the Empire",Kamigawa: Neon Dynasty,268,https://api.scryfall.com/cards/c375a022-5b57-496d-a802-e4ea8376e9e4,0,0,1
 7c31c48f-6275-4430-8dc9-05d70c332b7a,"Eiganjo, Seat of the Empire (Full Art)",Kamigawa: Neon Dynasty,413,https://api.scryfall.com/cards/7c31c48f-6275-4430-8dc9-05d70c332b7a,1,0,1
 f0bb1a5c-0f59-4951-827f-fe9df968232d,Eldrazi Displacer,Oath of the Gatewatch,13,https://api.scryfall.com/cards/f0bb1a5c-0f59-4951-827f-fe9df968232d,0,0,5
-1ab30d54-6043-4361-b221-268813f06a72,Eldrazi Temple,Modern Masters 2015,240,https://api.scryfall.com/cards/1ab30d54-6043-4361-b221-268813f06a72,0,0,3
-315924c9-77e3-405b-9bbf-852ed563c6e3,Eldrazi Temple,Rise of the Eldrazi,227,https://api.scryfall.com/cards/315924c9-77e3-405b-9bbf-852ed563c6e3,0,0,1
+1ab30d54-6043-4361-b221-268813f06a72,Eldrazi Temple,Modern Masters 2015,240,https://api.scryfall.com/cards/1ab30d54-6043-4361-b221-268813f06a72,0,0,1
+315924c9-77e3-405b-9bbf-852ed563c6e3,Eldrazi Temple,Rise of the Eldrazi,227,https://api.scryfall.com/cards/315924c9-77e3-405b-9bbf-852ed563c6e3,0,0,0
 e5b57672-c346-42f5-ac3e-82466a13b957,Elemental,Modern Horizons Tokens,8,https://api.scryfall.com/cards/e5b57672-c346-42f5-ac3e-82466a13b957,1,0,1
 70f1f745-9fc2-41a6-9d39-fb4964595cf5,Elemental // Elemental,Unstable Tokens,17,https://api.scryfall.com/cards/70f1f745-9fc2-41a6-9d39-fb4964595cf5,1,0,1
 72b45263-d4e9-4a53-a78b-be651e18b615,Elemental // Elemental,Unstable Tokens,11,https://api.scryfall.com/cards/72b45263-d4e9-4a53-a78b-be651e18b615,1,0,2
@@ -336,7 +336,7 @@ e106e4cc-f3fc-41bf-ab1c-4ae7c1a0521c,Kaito Shizuki (Full Art),Kamigawa: Neon Dyn
 87cc2855-6b14-44dd-a398-7dc2bbae081f,Kaldra Compleat,Modern Horizons 2,227,https://api.scryfall.com/cards/87cc2855-6b14-44dd-a398-7dc2bbae081f,0,0,1
 e52214e1-404a-405a-b08e-20e13c087338,Karakas,Ultimate Masters,244,https://api.scryfall.com/cards/e52214e1-404a-405a-b08e-20e13c087338,0,0,4
 1dab6c67-1fbb-44b7-a255-15ceaf8352cf,Karmic Guide,Eternal Masters,17,https://api.scryfall.com/cards/1dab6c67-1fbb-44b7-a255-15ceaf8352cf,0,0,0
-3ec0c0fb-1a4f-45f4-85b7-346a6d3ce2c5,"Karn, the Great Creator",War of the Spark,1,https://api.scryfall.com/cards/3ec0c0fb-1a4f-45f4-85b7-346a6d3ce2c5,0,0,3
+3ec0c0fb-1a4f-45f4-85b7-346a6d3ce2c5,"Karn, the Great Creator",War of the Spark,1,https://api.scryfall.com/cards/3ec0c0fb-1a4f-45f4-85b7-346a6d3ce2c5,0,0,1
 b89b2c79-e3d3-4ef9-bfc8-f9c090975011,Karplusan Forest,Dominaria United,250,https://api.scryfall.com/cards/b89b2c79-e3d3-4ef9-bfc8-f9c090975011,0,0,1
 2a83eca4-b6ad-4ec4-91f2-b2a62b32b056,Karplusan Forest (Full Art),Dominaria United,379,https://api.scryfall.com/cards/2a83eca4-b6ad-4ec4-91f2-b2a62b32b056,1,0,1
 4d84ac44-01d8-415e-af69-7c608ac8ae20,"Kataki, War's Wage",Modern Masters,20,https://api.scryfall.com/cards/4d84ac44-01d8-415e-af69-7c608ac8ae20,0,0,1
