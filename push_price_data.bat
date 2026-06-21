@@ -4,7 +4,7 @@ set COMMIT_MSG=Automated price data commit %date% %time%
 REM --------------------------------------------------------
 
 REM Add all changes (you can fine‑tune this)
-git add data\price_history.csv reports\price_report.csv
+git add data\price_history.csv reports\price_report.csv data\dropdown_lookup.json
 if errorlevel 1 (
     echo git add failed
     exit /b 1
