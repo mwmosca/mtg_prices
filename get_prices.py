@@ -1,4 +1,5 @@
 import csv
+import json
 from datetime import datetime
 from dotenv import load_dotenv
 from google.oauth2 import service_account
@@ -14,8 +15,9 @@ def main() -> None:
 
     PROJECT_DIRECTORY        = Path(__file__).resolve().parent
     COLLECTION_PATH          = Path(PROJECT_DIRECTORY, 'data',    'collection.csv')
-    PRICE_REPORT_PATH        = Path(PROJECT_DIRECTORY, 'reports', 'price_report.csv')
     PRICE_HISTORY_PATH       = Path(PROJECT_DIRECTORY, 'data',    'price_history.csv')
+    DROPDOWN_LOOKUP_PATH     = Path(PROJECT_DIRECTORY, 'data',    'dropdown_lookup.json')
+    PRICE_REPORT_PATH        = Path(PROJECT_DIRECTORY, 'reports', 'price_report.csv')
     MISSING_CARD_REPORT_PATH = Path(PROJECT_DIRECTORY, 'reports', 'missing_card_report.csv')
 
     USER_AGENT = getenv('USER_AGENT') # REQUIRED - must be accurate to your usage context
@@ -66,6 +68,16 @@ def main() -> None:
                 w.writerow(temp)
     else:
         input(f'Prices for {TODAY} have already been recorded.')
+
+    # Create the dropdown lookup json. ***************************************************************************
+    lookup_columns = ['name', 'set_name', 'collector_number']
+    lookup_map = {
+        c['id']: {col: c[col] for col in lookup_columns}
+        for c in collection
+    }
+
+    with open(DROPDOWN_LOOKUP_PATH, 'w', encoding='utf-8') as f:
+        json.dump(lookup_map, f, ensure_ascii=False, indent=2)
 
     # Write local reports ****************************************************************************************
     # Filter out cards that I don't own.
