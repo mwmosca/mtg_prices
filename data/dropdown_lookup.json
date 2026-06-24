@@ -444,11 +444,6 @@
     "set_name": "Eternal Masters",
     "collector_number": "62"
   },
-  "6559047e-6ede-4815-a3a0-389062094f9d": {
-    "name": "Needleverge Pathway // Pillarverge Pathway",
-    "set_name": "Zendikar Rising",
-    "collector_number": "263"
-  },
   "3effc85e-14e0-42b5-b730-f1594968ee06": {
     "name": "Nezahal, Primal Tide (Promo)",
     "set_name": "Rivals of Ixalan Promos",
@@ -734,6 +729,11 @@
     "set_name": "Kamigawa: Neon Dynasty Promos",
     "collector_number": "278s"
   },
+  "fd4b7ee2-de65-4288-872d-486065a4f226": {
+    "name": "Tamiyo's Safekeeping",
+    "set_name": "Kamigawa: Neon Dynasty",
+    "collector_number": "211"
+  },
   "c38d1722-96b0-4756-9da9-fe18b1c80649": {
     "name": "Teferi's Ageless Insight",
     "set_name": "Core Set 2021",
@@ -843,6 +843,11 @@
     "name": "Wooded Foothills",
     "set_name": "Khans of Tarkir",
     "collector_number": "249"
+  },
+  "a706d4bb-0b44-4e43-b340-7de799c086b8": {
+    "name": "Woodland Bellower",
+    "set_name": "Magic Origins",
+    "collector_number": "207"
   },
   "b59cbc7b-cee5-4dc3-bc9d-ba8bd7a52c2c": {
     "name": "World Breaker (Promo)",
