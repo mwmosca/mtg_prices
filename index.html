@@ -76,13 +76,14 @@
         
         if (etched) return 'Etched';
         if (foil) return 'Foil';
-        return 'Regular';
+        return '';
     }
 
-    // Generate Dropdown Label: "Name Foil" or "Name Etched"
-    function generateLabel(cardName, condition) {
-        if (!cardName) return 'Unknown Card';
-        return `${cardName} ${condition}`;
+    // Generate Dropdown Label: "Card Name -- Set -- Condition"
+    function generateLabel(cardName, setName, condition) {
+        const name = cardName || 'Unknown Card';
+        const set = setName || 'Unknown Set';
+        return `${name} -- ${set} -- ${condition}`;
     }
 
     // --- CHART LOGIC ---
@@ -156,8 +157,8 @@
         myChart.data.datasets[0].data = filteredData.map(d => parseFloat(d.price));
         
         const meta = cardMetadata[selectedId];
-        const displayName = meta ? meta.name : selectedId;
-        myChart.data.datasets[0].label = `${displayName} (${selectedCondition})`;
+        const displayName = meta ? `${meta.name} (${meta.set_name})` : selectedId;
+        myChart.data.datasets[0].label = `${displayName} - ${selectedCondition}`;
 
         myChart.update();
     }
@@ -178,10 +179,13 @@
             if (!uniqueOptions.has(comboKey)) {
                 uniqueOptions.add(comboKey);
                 
-                // Get name from our JSON metadata
+                // Get name AND set from our JSON metadata
                 const meta = cardMetadata[id];
                 const name = meta ? meta.name : id;
-                const labelText = generateLabel(name, cond);
+                const setName = meta ? meta.set_name : 'Unknown Set';
+                
+                // Generate label in requested format
+                const labelText = generateLabel(name, setName, cond);
 
                 const option = document.createElement('option');
                 option.value = id; // We only store the ID as value
