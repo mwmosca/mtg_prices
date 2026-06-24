@@ -74,6 +74,7 @@ def main() -> None:
     lookup_map = {
         c['id']: {col: c[col] for col in lookup_columns}
         for c in collection
+        if float(c.get('price', 0)) > 5  # Only include if price is greater than 5
     }
 
     with open(DROPDOWN_LOOKUP_PATH, 'w', encoding='utf-8') as f:
