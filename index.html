@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTG Price Visualizer</title>
+    
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 900px; margin: 40px auto; padding: 20px; background-color: #f8f9fa; }
+        .container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        h1 { color: #2c3e50; margin-bottom: 20px; text-align: center; }
+        
+        .controls { margin-bottom: 25px; display: flex; justify-content: center; align-items: center; gap: 15px; }
+        label { font-weight: 600; color: #555; font-size: 16px; }
+        
+        select { 
+            padding: 10px 15px; 
+            font-size: 16px; 
+            border: 2px solid #ddd; 
+            border-radius: 8px; 
+            min-width: 350px; 
+            background: #fff;
+            cursor: pointer;
+        }
+        select:hover { border-color: #aaa; }
+        
+        canvas { max-height: 500px; width: 100%; }
+        
+        .status { text-align: center; color: #777; margin-top: 15px; font-style: italic; height: 20px; }
+        .loading { color: #d35400; }
+        .success { color: #27ae60; font-weight: bold; }
+        .error { color: #c0392b; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Magic: The Gathering Price Tracker</h1>
+    
+    <div class="controls">
+        <label for="cardSelect">Select Card:</label>
+        <select id="cardSelect">
+            <option value="">Loading data...</option>
+        </select>
+    </div>
+
+    <canvas id="priceChart"></canvas>
+    <div id="statusMsg" class="status loading">Initializing application...</div>
+</div>
+
+<script>
+    // --- CONFIGURATION ---
+    const CSV_FILE = 'price_history.csv';
+    const JSON_FILE = 'dropdown_lookup.json';
+    
+    // State
+    let allPriceData = [];
+    let cardMetadata = {}; // Stores the JSON data: { "id": { name, set_name... } }
+    let myChart = null;
+
+    // DOM Elements
+    const cardSelect = document.getElementById('cardSelect');
+    const statusMsg = document.getElementById('statusMsg');
+    const ctx = document.getElementById('priceChart').getContext('2d');
+
+    // --- HELPER FUNCTIONS ---
+
+    // Determine condition string based on boolean columns in CSV
+    function getCondition(row) {
+        const foil = String(row.foil).toLowerCase() === 'true';
+        const etched = String(row.etched).toLowerCase() === 'true';
+        
+        if (etched) return 'Etched';
+        if (foil) return 'Foil';
+        return 'Regular';
+    }
+
+    // Generate Dropdown Label: "Name Foil" or "Name Etched"
+    function generateLabel(cardName, condition) {
+        if (!cardName) return 'Unknown Card';
+        return `${cardName} ${condition}`;
+    }
+
+    // --- CHART LOGIC ---
+
+    function initChart() {
+        if (myChart) myChart.destroy();
+
+        myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Price ($)',
+                    data: [],
+                    borderColor: '#3498db',
+                    backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                    borderWidth: 2.5,
+                    fill: true,
+                    tension: 0.3,
+                    pointRadius: 3,
+                    pointHoverRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            title: (items) => items[0].label,
+                            label: (ctx) => `$${ctx.parsed.y.toFixed(2)}`
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        type: 'category',
+                        title: { display: true, text: 'Date' },
+                        ticks: { maxTicksLimit: 12 }
+                    },
+                    y: {
+                        beginAtZero: false,
+                        title: { display: true, text: 'Price (USD)' },
+                        ticks: { callback: v => '$' + v }
+                    }
+                }
+            }
+        });
+    }
+
+    function updateChart(selectedId, selectedCondition) {
+        if (!selectedId) {
+            myChart.data.labels = [];
+            myChart.data.datasets[0].data = [];
+            myChart.update();
+            return;
+        }
+
+        // Filter data: Match ID AND specific condition (Regular/Foil/Etched)
+        const filteredData = allPriceData.filter(row => {
+            const rowCond = getCondition(row);
+            return row.id.trim() === selectedId && rowCond === selectedCondition;
+        });
+
+        // Sort chronologically
+        filteredData.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+        // Update Chart
+        myChart.data.labels = filteredData.map(d => d.date);
+        myChart.data.datasets[0].data = filteredData.map(d => parseFloat(d.price));
+        
+        const meta = cardMetadata[selectedId];
+        const displayName = meta ? meta.name : selectedId;
+        myChart.data.datasets[0].label = `${displayName} (${selectedCondition})`;
+
+        myChart.update();
+    }
+
+    // --- POPULATE DROPDOWN ---
+
+    function populateDropdown() {
+        const uniqueOptions = new Set();
+        
+        // We iterate through ALL price rows to find unique combinations of (ID + Condition)
+        allPriceData.forEach(row => {
+            const id = row.id.trim();
+            const cond = getCondition(row);
+            
+            // Create a unique key for the combo
+            const comboKey = `${id}|${cond}`;
+            
+            if (!uniqueOptions.has(comboKey)) {
+                uniqueOptions.add(comboKey);
+                
+                // Get name from our JSON metadata
+                const meta = cardMetadata[id];
+                const name = meta ? meta.name : id;
+                const labelText = generateLabel(name, cond);
+
+                const option = document.createElement('option');
+                option.value = id; // We only store the ID as value
+                option.textContent = labelText;
+                // Store the condition in a custom data attribute for easy retrieval
+                option.dataset.condition = cond;
+                
+                cardSelect.appendChild(option);
+            }
+        });
+
+        if (uniqueOptions.size > 0) {
+            statusMsg.textContent = `Loaded ${uniqueOptions.size} card versions.`;
+            statusMsg.className = 'status success';
+        } else {
+            statusMsg.textContent = 'No data found.';
+            statusMsg.className = 'status error';
+        }
+    }
+
+    // --- EVENT LISTENERS ---
+
+    cardSelect.addEventListener('change', (e) => {
+        const selectedId = e.target.value;
+        const selectedCond = e.target.options[e.target.selectedIndex]?.dataset.condition;
+        
+        updateChart(selectedId, selectedCond);
+    });
+
+    // --- INITIALIZATION SEQUENCE ---
+
+    // 1. Load JSON First (Fast, small)
+    fetch(JSON_FILE)
+        .then(res => res.ok ? res.json() : Promise.reject('JSON file not found'))
+        .then(data => {
+            cardMetadata = data;
+            console.log('Metadata loaded:', Object.keys(data).length, 'cards');
+            
+            // 2. Then Load CSV (Larger, tabular)
+            Papa.parse(CSV_FILE, {
+                download: true,
+                header: true,
+                skipEmptyLines: true,
+                complete: function(results) {
+                    if (results.errors.length > 0) console.warn("CSV Warnings:", results.errors.slice(0, 3));
+                    
+                    allPriceData = results.data;
+                    console.log('Price data loaded:', allPriceData.length, 'rows');
+                    
+                    if (allPriceData.length === 0) {
+                        statusMsg.textContent = 'Error: Price data is empty.';
+                        statusMsg.className = 'status error';
+                        return;
+                    }
+
+                    initChart();
+                    populateDropdown();
+                },
+                error: function(err) {
+                    statusMsg.textContent = 'Error loading price history.';
+                    statusMsg.className = 'status error';
+                    console.error(err);
+                }
+            });
+        })
+        .catch(err => {
+            statusMsg.textContent = 'Error loading metadata. Check JSON file.';
+            statusMsg.className = 'status error';
+            console.error(err);
+        });
+
+</script>
+
+</body>
+</html>
