@@ -234,8 +234,14 @@
                 uniqueOptions.add(comboKey);
                 
                 const meta = cardMetadata[id];
-                const name = meta ? meta.name : id;
-                const setName = meta ? meta.set_name : 'Unknown Set';
+
+                if (!meta) {
+                    // Skip this row entirely if we don't have metadata for it
+                    return; 
+                }
+
+                const name = meta.name;
+                const setName = meta.set_name;
                 
                 const labelText = generateLabel(name, setName, cond);
 
