@@ -14,7 +14,8 @@
         .container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
         h1 { color: #2c3e50; margin-bottom: 20px; text-align: center; }
         
-        .controls { margin-bottom: 25px; display: flex; justify-content: center; align-items: center; gap: 15px; }
+        /* Top Row: Dropdown */
+        .top-controls { margin-bottom: 20px; display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap; }
         label { font-weight: 600; color: #555; font-size: 16px; }
         
         select { 
@@ -22,11 +23,33 @@
             font-size: 16px; 
             border: 2px solid #ddd; 
             border-radius: 8px; 
-            min-width: 350px; 
+            min-width: 300px; 
             background: #fff;
             cursor: pointer;
         }
         select:hover { border-color: #aaa; }
+
+        /* Bottom Row: Time Filters */
+        .time-filters { display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            border: 2px solid #ccc;
+            background: white;
+            color: #555;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover { background-color: #f0f0f0; border-color: #bbb; }
+        
+        /* Active State */
+        .filter-btn.active {
+            background-color: #3498db;
+            color: white;
+            border-color: #2980b9;
+        }
         
         canvas { max-height: 500px; width: 100%; }
         
@@ -41,11 +64,20 @@
 <div class="container">
     <h1>Magic: The Gathering Price Tracker</h1>
     
-    <div class="controls">
-        <label for="cardSelect">Select Card:</label>
+    <!-- Row 1: Card Selection -->
+    <div class="top-controls">
+        <label for="cardSelect">Card:</label>
         <select id="cardSelect">
             <option value="">Loading data...</option>
         </select>
+    </div>
+
+    <!-- Row 2: Time Range Selection -->
+    <div class="time-filters">
+        <button class="filter-btn active" data-days="-1">All History</button>
+        <button class="filter-btn" data-days="365">Past Year</button>
+        <button class="filter-btn" data-days="30">Past Month</button>
+        <button class="filter-btn" data-days="7">Past Week</button>
     </div>
 
     <canvas id="priceChart"></canvas>
@@ -59,31 +91,52 @@
     
     // State
     let allPriceData = [];
-    let cardMetadata = {}; // Stores the JSON data: { "id": { name, set_name... } }
+    let cardMetadata = {}; 
     let myChart = null;
+    
+    // Current State
+    let currentFilterDays = -1; // -1 means All
+    let currentSelectedId = null;
+    let currentSelectedCondition = null;
 
     // DOM Elements
     const cardSelect = document.getElementById('cardSelect');
     const statusMsg = document.getElementById('statusMsg');
     const ctx = document.getElementById('priceChart').getContext('2d');
+    const filterButtons = document.querySelectorAll('.filter-btn');
 
     // --- HELPER FUNCTIONS ---
 
-    // Determine condition string based on boolean columns in CSV
     function getCondition(row) {
         const foil = String(row.foil).toLowerCase() === 'true';
         const etched = String(row.etched).toLowerCase() === 'true';
-        
         if (etched) return 'Etched';
         if (foil) return 'Foil';
         return '';
     }
 
-    // Generate Dropdown Label: "Card Name -- Set -- Condition"
     function generateLabel(cardName, setName, condition) {
         const name = cardName || 'Unknown Card';
         const set = setName || 'Unknown Set';
         return `${name} -- ${set} -- ${condition}`;
+    }
+
+    // Date Filtering Logic
+    function filterByDate(data, days) {
+        if (days === -1) return data; // All history
+
+        const now = new Date();
+        // Reset time to midnight to compare dates cleanly
+        now.setHours(0, 0, 0, 0);
+        
+        const cutoff = new Date(now);
+        cutoff.setDate(cutoff.getDate() - days);
+
+        return data.filter(row => {
+            const rowDate = new Date(row.date);
+            rowDate.setHours(0, 0, 0, 0); // Normalize comparison
+            return rowDate >= cutoff;
+        });
     }
 
     // --- CHART LOGIC ---
@@ -135,31 +188,35 @@
         });
     }
 
-    function updateChart(selectedId, selectedCondition) {
-        if (!selectedId) {
+    function updateChart() {
+        if (!currentSelectedId) {
             myChart.data.labels = [];
             myChart.data.datasets[0].data = [];
             myChart.update();
             return;
         }
 
-        // Filter data: Match ID AND specific condition (Regular/Foil/Etched)
-        const filteredData = allPriceData.filter(row => {
+        // 1. Filter by Condition (Foil/Etched/Regular)
+        let filteredData = allPriceData.filter(row => {
             const rowCond = getCondition(row);
-            return row.id.trim() === selectedId && rowCond === selectedCondition;
+            return row.id.trim() === currentSelectedId && rowCond === currentSelectedCondition;
         });
 
-        // Sort chronologically
+        // 2. Filter by Time Period
+        filteredData = filterByDate(filteredData, currentFilterDays);
+
+        // 3. Sort Chronologically
         filteredData.sort((a, b) => new Date(a.date) - new Date(b.date));
 
-        // Update Chart
+        // 4. Update Chart Data
         myChart.data.labels = filteredData.map(d => d.date);
         myChart.data.datasets[0].data = filteredData.map(d => parseFloat(d.price));
         
-        const meta = cardMetadata[selectedId];
-        const displayName = meta ? `${meta.name} (${meta.set_name})` : selectedId;
-        myChart.data.datasets[0].label = `${displayName} - ${selectedCondition}`;
-
+        const meta = cardMetadata[currentSelectedId];
+        const displayName = meta ? `${meta.name} (${meta.set_name})` : currentSelectedId;
+        const periodLabel = currentFilterDays === -1 ? "All Time" : `Last ${currentFilterDays} Days`;
+        
+        myChart.data.datasets[0].label = `${displayName} - ${currentSelectedCondition} (${periodLabel})`;
         myChart.update();
     }
 
@@ -168,29 +225,23 @@
     function populateDropdown() {
         const uniqueOptions = new Set();
         
-        // We iterate through ALL price rows to find unique combinations of (ID + Condition)
         allPriceData.forEach(row => {
             const id = row.id.trim();
             const cond = getCondition(row);
-            
-            // Create a unique key for the combo
             const comboKey = `${id}|${cond}`;
             
             if (!uniqueOptions.has(comboKey)) {
                 uniqueOptions.add(comboKey);
                 
-                // Get name AND set from our JSON metadata
                 const meta = cardMetadata[id];
                 const name = meta ? meta.name : id;
                 const setName = meta ? meta.set_name : 'Unknown Set';
                 
-                // Generate label in requested format
                 const labelText = generateLabel(name, setName, cond);
 
                 const option = document.createElement('option');
-                option.value = id; // We only store the ID as value
+                option.value = id;
                 option.textContent = labelText;
-                // Store the condition in a custom data attribute for easy retrieval
                 option.dataset.condition = cond;
                 
                 cardSelect.appendChild(option);
@@ -208,23 +259,36 @@
 
     // --- EVENT LISTENERS ---
 
+    // 1. Card Selection Change
     cardSelect.addEventListener('change', (e) => {
-        const selectedId = e.target.value;
-        const selectedCond = e.target.options[e.target.selectedIndex]?.dataset.condition;
-        
-        updateChart(selectedId, selectedCond);
+        currentSelectedId = e.target.value;
+        currentSelectedCondition = e.target.options[e.target.selectedIndex]?.dataset.condition;
+        updateChart();
+    });
+
+    // 2. Time Filter Button Clicks
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all
+            filterButtons.forEach(b => b.classList.remove('active'));
+            // Add to clicked
+            btn.classList.add('active');
+            
+            // Update state
+            currentFilterDays = parseInt(btn.dataset.days);
+            
+            // Refresh chart
+            updateChart();
+        });
     });
 
     // --- INITIALIZATION SEQUENCE ---
 
-    // 1. Load JSON First (Fast, small)
     fetch(JSON_FILE)
         .then(res => res.ok ? res.json() : Promise.reject('JSON file not found'))
         .then(data => {
             cardMetadata = data;
-            console.log('Metadata loaded:', Object.keys(data).length, 'cards');
             
-            // 2. Then Load CSV (Larger, tabular)
             Papa.parse(CSV_FILE, {
                 download: true,
                 header: true,
@@ -233,7 +297,6 @@
                     if (results.errors.length > 0) console.warn("CSV Warnings:", results.errors.slice(0, 3));
                     
                     allPriceData = results.data;
-                    console.log('Price data loaded:', allPriceData.length, 'rows');
                     
                     if (allPriceData.length === 0) {
                         statusMsg.textContent = 'Error: Price data is empty.';
@@ -252,7 +315,7 @@
             });
         })
         .catch(err => {
-            statusMsg.textContent = 'Error loading metadata. Check JSON file.';
+            statusMsg.textContent = 'Error loading metadata.';
             statusMsg.className = 'status error';
             console.error(err);
         });
