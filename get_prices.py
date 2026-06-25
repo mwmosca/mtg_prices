@@ -70,12 +70,19 @@ def main() -> None:
         input(f'Prices for {TODAY} have already been recorded.')
 
     # Create the dropdown lookup json. ***************************************************************************
-    lookup_columns = ['name', 'set_name', 'collector_number']
-    lookup_map = {
-        f'{c["id"]}-{c["foil"]}-{c["etched"]}': {col: c[col] for col in lookup_columns}
-        for c in collection
-        if float(c.get('price') or 0) > 5  # Only include if price is greater than 5
-    }
+    lookup_map = {}
+
+    for c in collection:
+        if c['foil'] == '1':
+            foiling = ' -- Foil'
+        elif c['etched'] == '1':
+            foiling = ' -- Etched'
+        else:
+            foiling = ''
+
+        lookup_map[f'{c["id"]}-{c["foil"]}-{c["etched"]}'] = {
+            'display_name' : f'{c["name"]} -- {c["set_name"]} -- {c["collector_number"]}{foiling}'
+        }
 
     with open(DROPDOWN_LOOKUP_PATH, 'w', encoding='utf-8') as f:
         json.dump(lookup_map, f, ensure_ascii=False, indent=2)
