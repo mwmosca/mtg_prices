@@ -72,7 +72,7 @@ def main() -> None:
     # Create the dropdown lookup json. ***************************************************************************
     lookup_columns = ['name', 'set_name', 'collector_number']
     lookup_map = {
-        c['id']: {col: c[col] for col in lookup_columns}
+        f'{c["id"]}-{c["foil"]}-{c["etched"]}': {col: c[col] for col in lookup_columns}
         for c in collection
         if float(c.get('price') or 0) > 5  # Only include if price is greater than 5
     }
