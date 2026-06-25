@@ -214,16 +214,28 @@
 
     // --- POPULATE DROPDOWN ---
 
+        // --- POPULATE DROPDOWN ---
+
     function populateDropdown() {
         cardSelect.innerHTML = '<option value="">Select Card...</option>';
         let count = 0;
 
-        // Iterate over the METADATA keys (which are already unique composite keys)
-        Object.keys(cardMetadata).sort().forEach(key => {
+        // 1. Get all keys
+        const keys = Object.keys(cardMetadata);
+
+        // 2. Sort them ALPHABETICALLY based on their displayName value
+        keys.sort((a, b) => {
+            const nameA = cardMetadata[a].displayName.toLowerCase();
+            const nameB = cardMetadata[b].displayName.toLowerCase();
+            return nameA.localeCompare(nameB);
+        });
+
+        // 3. Create options in sorted order
+        keys.forEach(key => {
             const meta = cardMetadata[key];
             const option = document.createElement('option');
-            option.value = key; // VALUE IS THE COMPOSITE KEY
-            option.textContent = meta.display_name;
+            option.value = key; 
+            option.textContent = meta.displayName;
             cardSelect.appendChild(option);
             count++;
         });
