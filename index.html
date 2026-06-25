@@ -129,10 +129,54 @@
 
     function initChart() {
         if (myChart) myChart.destroy();
+
         myChart = new Chart(ctx, {
             type: 'line',
-            data: { labels: [], datasets: [{ label: 'Price ($)', data: [], borderColor: '#3498db', backgroundColor: 'rgba(52, 152, 219, 0.1)', borderWidth: 2.5, fill: true, tension: 0.3 }] },
-            options: { responsive: true, plugins: { legend: { display: false }, tooltip: { callbacks: { label: (ctx) => `$${ctx.parsed.y.toFixed(2)}` } } }, scales: { x: { title: { display: true, text: 'Date' } }, y: { ticks: { callback: v => '$' + v } } } }
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Price ($)',
+                    data: [],
+                    borderColor: '#3498db',
+                    backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                    borderWidth: 2.5,
+                    fill: true,
+                    tension: 0.3,
+                    pointRadius: 3,
+                    pointHoverRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            title: (items) => items[0].label,
+                            // Force 2 decimals in tooltips too
+                            label: (ctx) => `$${ctx.parsed.y.toFixed(2)}`
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        type: 'category',
+                        title: { display: true, text: 'Date' },
+                        ticks: { maxTicksLimit: 12 }
+                    },
+                    y: {
+                        beginAtZero: false,
+                        title: { display: true, text: 'Price (USD)' },
+                        // UPDATE THIS PART TO FORCE 2 DECIMALS
+                        ticks: {
+                            callback: function(value) {
+                                return '$' + parseFloat(value).toFixed(2);
+                            }
+                        }
+                    }
+                }
+            }
         });
     }
 
