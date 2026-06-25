@@ -223,10 +223,10 @@
         // 1. Get all keys
         const keys = Object.keys(cardMetadata);
 
-        // 2. Sort them ALPHABETICALLY based on their displayName value
+        // 2. Sort them ALPHABETICALLY based on their display_name value
         keys.sort((a, b) => {
-            const nameA = cardMetadata[a].displayName.toLowerCase();
-            const nameB = cardMetadata[b].displayName.toLowerCase();
+            const nameA = cardMetadata[a].display_name.toLowerCase();
+            const nameB = cardMetadata[b].display_name.toLowerCase();
             return nameA.localeCompare(nameB);
         });
 
@@ -235,7 +235,7 @@
             const meta = cardMetadata[key];
             const option = document.createElement('option');
             option.value = key; 
-            option.textContent = meta.displayName;
+            option.textContent = meta.display_name;
             cardSelect.appendChild(option);
             count++;
         });
