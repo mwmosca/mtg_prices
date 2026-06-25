@@ -108,10 +108,7 @@
 
     // Helper to generate the expected key from a CSV row
     function getKeyFromRow(row) {
-        const id = row.id.trim();
-        const f = (String(row.foil).toLowerCase() === 'true') ? 1 : 0;
-        const e = (String(row.etched).toLowerCase() === 'true') ? 1 : 0;
-        return `${id}-${f}-${e}`;
+        return `${row.id}-${row.foil}-${row.etched}`;
     }
 
     // Date Filtering Logic
