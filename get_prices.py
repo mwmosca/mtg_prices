@@ -69,24 +69,6 @@ def main() -> None:
     else:
         input(f'Prices for {TODAY} have already been recorded.')
 
-    # Create the dropdown lookup json. ***************************************************************************
-    lookup_map = {}
-
-    for c in collection:
-        if c['foil'] == '1':
-            foiling = ' -- Foil'
-        elif c['etched'] == '1':
-            foiling = ' -- Etched'
-        else:
-            foiling = ''
-
-        lookup_map[f'{c["id"]}-{c["foil"]}-{c["etched"]}'] = {
-            'display_name' : f'{c["name"]} -- {c["set_name"]} -- {c["collector_number"]}{foiling}'
-        }
-
-    with open(DROPDOWN_LOOKUP_PATH, 'w', encoding='utf-8') as f:
-        json.dump(lookup_map, f, ensure_ascii=False, indent=2)
-
     # Write local reports ****************************************************************************************
     # Filter out cards that I don't own.
     collection = [c for c in collection if c['quantity'] != '0']
@@ -128,6 +110,27 @@ def main() -> None:
         valueInputOption = 'USER_ENTERED', # Unlike RAW, USER_ENTERED auto-parses numbers. 
         body             = body
     ).execute())
+
+    # Create the dropdown lookup json. ***************************************************************************
+    # Filter out cards below a price threshold.
+    collection = [c for c in collection if (float(c.get('price') or 0) >= 5)]
+    
+    lookup_map = {}
+
+    for c in collection:
+        if c['foil'] == '1':
+            foiling = ' -- Foil'
+        elif c['etched'] == '1':
+            foiling = ' -- Etched'
+        else:
+            foiling = ''
+
+        lookup_map[f'{c["id"]}-{c["foil"]}-{c["etched"]}'] = {
+            'display_name' : f'{c["name"]} -- {c["set_name"]} -- {c["collector_number"]}{foiling}'
+        }
+
+    with open(DROPDOWN_LOOKUP_PATH, 'w', encoding='utf-8') as f:
+        json.dump(lookup_map, f, ensure_ascii=False, indent=2)
 
 if __name__ == '__main__':
     try:
