@@ -91,13 +91,12 @@
     
     // State
     let allPriceData = [];
-    let cardMetadata = {}; 
+    let cardMetadata = {}; // Now keyed by Composite Key (e.g., "id-0-1")
     let myChart = null;
     
     // Current State
-    let currentFilterDays = -1; // -1 means All
-    let currentSelectedId = null;
-    let currentSelectedCondition = null;
+    let currentFilterDays = -1; 
+    let currentSelectedKey = null; // Stores the composite key
 
     // DOM Elements
     const cardSelect = document.getElementById('cardSelect');
@@ -107,34 +106,24 @@
 
     // --- HELPER FUNCTIONS ---
 
-    function getCondition(row) {
-        const foil = String(row.foil).toLowerCase() === 'true';
-        const etched = String(row.etched).toLowerCase() === 'true';
-        if (etched) return 'Etched';
-        if (foil) return 'Foil';
-        return '';
-    }
-
-    function generateLabel(cardName, setName, condition) {
-        const name = cardName || 'Unknown Card';
-        const set = setName || 'Unknown Set';
-        return `${name} -- ${set} -- ${condition}`;
+    // Helper to generate the expected key from a CSV row
+    function getKeyFromRow(row) {
+        const id = row.id.trim();
+        const f = (String(row.foil).toLowerCase() === 'true') ? 1 : 0;
+        const e = (String(row.etched).toLowerCase() === 'true') ? 1 : 0;
+        return `${id}-${f}-${e}`;
     }
 
     // Date Filtering Logic
     function filterByDate(data, days) {
-        if (days === -1) return data; // All history
-
+        if (days === -1) return data;
         const now = new Date();
-        // Reset time to midnight to compare dates cleanly
-        now.setHours(0, 0, 0, 0);
-        
+        now.setHours(0,0,0,0);
         const cutoff = new Date(now);
         cutoff.setDate(cutoff.getDate() - days);
-
         return data.filter(row => {
             const rowDate = new Date(row.date);
-            rowDate.setHours(0, 0, 0, 0); // Normalize comparison
+            rowDate.setHours(0,0,0,0);
             return rowDate >= cutoff;
         });
     }
@@ -143,187 +132,108 @@
 
     function initChart() {
         if (myChart) myChart.destroy();
-
         myChart = new Chart(ctx, {
             type: 'line',
-            data: {
-                labels: [],
-                datasets: [{
-                    label: 'Price ($)',
-                    data: [],
-                    borderColor: '#3498db',
-                    backgroundColor: 'rgba(52, 152, 219, 0.1)',
-                    borderWidth: 2.5,
-                    fill: true,
-                    tension: 0.3,
-                    pointRadius: 3,
-                    pointHoverRadius: 6
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: false },
-                    tooltip: {
-                        callbacks: {
-                            title: (items) => items[0].label,
-                            label: (ctx) => `$${ctx.parsed.y.toFixed(2)}`
-                        }
-                    }
-                },
-                scales: {
-                    x: {
-                        type: 'category',
-                        title: { display: true, text: 'Date' },
-                        ticks: { maxTicksLimit: 12 }
-                    },
-                    y: {
-                        beginAtZero: false,
-                        title: { display: true, text: 'Price (USD)' },
-                        ticks: { callback: v => '$' + v }
-                    }
-                }
-            }
+            data: { labels: [], datasets: [{ label: 'Price ($)', data: [], borderColor: '#3498db', backgroundColor: 'rgba(52, 152, 219, 0.1)', borderWidth: 2.5, fill: true, tension: 0.3 }] },
+            options: { responsive: true, plugins: { legend: { display: false }, tooltip: { callbacks: { label: (ctx) => `$${ctx.parsed.y.toFixed(2)}` } } }, scales: { x: { title: { display: true, text: 'Date' } }, y: { ticks: { callback: v => '$' + v } } } }
         });
     }
 
     function updateChart() {
-        if (!currentSelectedId) {
+        if (!currentSelectedKey || !cardMetadata[currentSelectedKey]) {
             myChart.data.labels = [];
             myChart.data.datasets[0].data = [];
             myChart.update();
             return;
         }
 
-        // 1. Filter by Condition (Foil/Etched/Regular)
+        const meta = cardMetadata[currentSelectedKey];
+        const scryfallId = meta.scryfall_id;
+
+        // Filter 1: Match EXACTLY the composite key derived from the row
         let filteredData = allPriceData.filter(row => {
-            const rowCond = getCondition(row);
-            return row.id.trim() === currentSelectedId && rowCond === currentSelectedCondition;
+            const rowKey = getKeyFromRow(row);
+            return rowKey === currentSelectedKey;
         });
 
-        // 2. Filter by Time Period
+        // Filter 2: Time Period
         filteredData = filterByDate(filteredData, currentFilterDays);
 
-        // 3. Sort Chronologically
+        // Sort
         filteredData.sort((a, b) => new Date(a.date) - new Date(b.date));
 
-        // 4. Update Chart Data
+        // Update Chart
         myChart.data.labels = filteredData.map(d => d.date);
         myChart.data.datasets[0].data = filteredData.map(d => parseFloat(d.price));
         
-        const meta = cardMetadata[currentSelectedId];
-        const displayName = meta ? `${meta.name} (${meta.set_name})` : currentSelectedId;
         const periodLabel = currentFilterDays === -1 ? "All Time" : `Last ${currentFilterDays} Days`;
-        
-        myChart.data.datasets[0].label = `${displayName} - ${currentSelectedCondition} (${periodLabel})`;
+        myChart.data.datasets[0].label = `${meta.display_name} (${periodLabel})`;
         myChart.update();
     }
 
     // --- POPULATE DROPDOWN ---
 
     function populateDropdown() {
-        const uniqueOptions = new Set();
-        
-        allPriceData.forEach(row => {
-            const id = row.id.trim();
-            const cond = getCondition(row);
-            const comboKey = `${id}|${cond}`;
-            
-            if (!uniqueOptions.has(comboKey)) {
-                uniqueOptions.add(comboKey);
-                
-                const meta = cardMetadata[id];
+        cardSelect.innerHTML = '<option value="">Select Card...</option>';
+        let count = 0;
 
-                if (!meta) {
-                    // Skip this row entirely if we don't have metadata for it
-                    return; 
-                }
-
-                const name = meta.name;
-                const setName = meta.set_name;
-                
-                const labelText = generateLabel(name, setName, cond);
-
-                const option = document.createElement('option');
-                option.value = id;
-                option.textContent = labelText;
-                option.dataset.condition = cond;
-                
-                cardSelect.appendChild(option);
-            }
+        // Iterate over the METADATA keys (which are already unique composite keys)
+        Object.keys(cardMetadata).sort().forEach(key => {
+            const meta = cardMetadata[key];
+            const option = document.createElement('option');
+            option.value = key; // VALUE IS THE COMPOSITE KEY
+            option.textContent = meta.display_name;
+            cardSelect.appendChild(option);
+            count++;
         });
 
-        if (uniqueOptions.size > 0) {
-            statusMsg.textContent = `Loaded ${uniqueOptions.size} card versions.`;
-            statusMsg.className = 'status success';
-        } else {
-            statusMsg.textContent = 'No data found.';
-            statusMsg.className = 'status error';
-        }
+        statusMsg.textContent = `Loaded ${count} card versions.`;
+        statusMsg.className = 'status success';
     }
 
     // --- EVENT LISTENERS ---
 
-    // 1. Card Selection Change
     cardSelect.addEventListener('change', (e) => {
-        currentSelectedId = e.target.value;
-        currentSelectedCondition = e.target.options[e.target.selectedIndex]?.dataset.condition;
+        currentSelectedKey = e.target.value;
         updateChart();
     });
 
-    // 2. Time Filter Button Clicks
     filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Remove active class from all
             filterButtons.forEach(b => b.classList.remove('active'));
-            // Add to clicked
             btn.classList.add('active');
-            
-            // Update state
             currentFilterDays = parseInt(btn.dataset.days);
-            
-            // Refresh chart
             updateChart();
         });
     });
 
-    // --- INITIALIZATION SEQUENCE ---
+    // --- INITIALIZATION ---
 
     fetch(JSON_FILE)
-        .then(res => res.ok ? res.json() : Promise.reject('JSON file not found'))
+        .then(res => res.ok ? res.json() : Promise.reject('JSON missing'))
         .then(data => {
             cardMetadata = data;
-            
             Papa.parse(CSV_FILE, {
-                download: true,
-                header: true,
-                skipEmptyLines: true,
-                complete: function(results) {
-                    if (results.errors.length > 0) console.warn("CSV Warnings:", results.errors.slice(0, 3));
-                    
+                download: true, header: true, skipEmptyLines: true,
+                complete: (results) => {
                     allPriceData = results.data;
-                    
-                    if (allPriceData.length === 0) {
-                        statusMsg.textContent = 'Error: Price data is empty.';
-                        statusMsg.className = 'status error';
+                    if(!allPriceData.length) {
+                        statusMsg.textContent = "Error: No price data.";
+                        statusMsg.className = "status error";
                         return;
                     }
-
                     initChart();
                     populateDropdown();
                 },
-                error: function(err) {
-                    statusMsg.textContent = 'Error loading price history.';
-                    statusMsg.className = 'status error';
-                    console.error(err);
+                error: (err) => {
+                    statusMsg.textContent = "CSV Error";
+                    statusMsg.className = "status error";
                 }
             });
         })
         .catch(err => {
-            statusMsg.textContent = 'Error loading metadata.';
-            statusMsg.className = 'status error';
-            console.error(err);
+            statusMsg.textContent = "JSON Error";
+            statusMsg.className = "status error";
         });
 
 </script>
