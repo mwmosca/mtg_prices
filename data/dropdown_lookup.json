@@ -29,6 +29,9 @@
   "f2df3258-c053-48a8-974f-d80899b2cd93-1-0": {
     "display_name": "Ashiok, Dream Render -- War of the Spark -- 228 -- Foil"
   },
+  "cd114ec3-d286-4c70-a122-3043bc53cc88-0-0": {
+    "display_name": "Batterskull -- New Phyrexia -- 130"
+  },
   "9da6f595-41b2-4e52-b15a-6ad18e4232c7-0-0": {
     "display_name": "Beast Whisperer -- Guilds of Ravnica -- 123"
   },
@@ -82,6 +85,9 @@
   },
   "05cf51d8-9f91-42ff-99e9-4397f2251c20-0-0": {
     "display_name": "Dark Confidant -- Modern Masters 2015 -- 75"
+  },
+  "95f27eeb-6f14-4db3-adb9-9be5ed76b34b-0-0": {
+    "display_name": "Dark Ritual -- Masters 25 -- 82"
   },
   "16e040c3-bf42-4a5b-aeb3-5dc9921151e5-1-0": {
     "display_name": "Death's Shadow -- Worldwake -- 57 -- Foil"
@@ -154,9 +160,6 @@
   },
   "af7091c9-5f98-4078-a42b-c9e057346d9b-0-0": {
     "display_name": "Hallowed Fountain -- Return to Ravnica -- 241"
-  },
-  "b851c41b-ed73-4ee4-9063-544f97f35f67-0-0": {
-    "display_name": "Hengegate Pathway // Mistgate Pathway (Full Art) -- Kaldheim -- 293"
   },
   "135b6adb-5c9c-4852-8c2a-c6f6d9bf96b1-1-0": {
     "display_name": "Honden of Night's Reach -- Eternal Masters -- 91 -- Foil"
@@ -383,9 +386,6 @@
   "acfcf183-9c87-4a62-988c-3bedc9d87c12-0-0": {
     "display_name": "Sudden Spoiling -- Commander 2014 -- 164"
   },
-  "4550b26a-3a73-4724-99d5-1e0a52c36701-0-0": {
-    "display_name": "Summoner's Pact -- Masters 25 -- 189"
-  },
   "948b026c-cfce-462b-afb6-7a383bd121de-0-0": {
     "display_name": "Summoner's Pact -- Future Sight -- 139"
   },
@@ -400,9 +400,6 @@
   },
   "198cc211-ca8e-4bb3-b825-4aab5a4ed10a-1-0": {
     "display_name": "Takenuma, Abandoned Mire (Promo) -- Kamigawa: Neon Dynasty Promos -- 278s -- Foil"
-  },
-  "fd4b7ee2-de65-4288-872d-486065a4f226-0-0": {
-    "display_name": "Tamiyo's Safekeeping -- Kamigawa: Neon Dynasty -- 211"
   },
   "a7f56fbb-c88a-4d10-a6c1-fef72403c4b9-0-0": {
     "display_name": "Teferi's Protection (Full Art) -- Strixhaven Mystical Archive -- 74"
