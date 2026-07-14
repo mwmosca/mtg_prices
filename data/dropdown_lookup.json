@@ -191,6 +191,9 @@
   "e52214e1-404a-405a-b08e-20e13c087338-0-0": {
     "display_name": "Karakas -- Ultimate Masters -- 244"
   },
+  "3ec0c0fb-1a4f-45f4-85b7-346a6d3ce2c5-0-0": {
+    "display_name": "Karn, the Great Creator -- War of the Spark -- 1"
+  },
   "7ea4b5bc-18a4-45db-a56a-ab3f8bd2fb0d-0-0": {
     "display_name": "Ledger Shredder -- Streets of New Capenna -- 46"
   },
@@ -205,9 +208,6 @@
   },
   "69d97af0-8af0-4124-b56f-2633d34e5574-0-0": {
     "display_name": "Lotho, Corrupt Shirriff (Extended Art) -- The Lord of the Rings: Tales of Middle-earth -- 370"
-  },
-  "962a16bb-516c-4e74-b8dd-edd4c63c5fff-0-0": {
-    "display_name": "Magus of the Coffers -- Commander 2014 -- 148"
   },
   "ba874c0c-f66f-4edc-9859-40273487aef0-0-0": {
     "display_name": "Mana Drain -- Commander Legends -- 80"
@@ -401,6 +401,9 @@
   "198cc211-ca8e-4bb3-b825-4aab5a4ed10a-1-0": {
     "display_name": "Takenuma, Abandoned Mire (Promo) -- Kamigawa: Neon Dynasty Promos -- 278s -- Foil"
   },
+  "fd4b7ee2-de65-4288-872d-486065a4f226-0-0": {
+    "display_name": "Tamiyo's Safekeeping -- Kamigawa: Neon Dynasty -- 211"
+  },
   "a7f56fbb-c88a-4d10-a6c1-fef72403c4b9-0-0": {
     "display_name": "Teferi's Protection (Full Art) -- Strixhaven Mystical Archive -- 74"
   },
@@ -451,9 +454,6 @@
   },
   "47fde349-010e-4a2e-838e-e924dbeec355-0-0": {
     "display_name": "Watery Grave -- Gatecrash -- 249"
-  },
-  "0279fd3c-9252-4958-9d7a-5f33aa25907e-0-0": {
-    "display_name": "Whir of Invention -- Aether Revolt -- 49"
   },
   "e7b28650-cddc-4878-b1d1-b5a764f4df49-0-0": {
     "display_name": "Windswept Heath -- Khans of Tarkir -- 248"
