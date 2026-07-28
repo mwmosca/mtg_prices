@@ -86,9 +86,6 @@
   "05cf51d8-9f91-42ff-99e9-4397f2251c20-0-0": {
     "display_name": "Dark Confidant -- Modern Masters 2015 -- 75"
   },
-  "95f27eeb-6f14-4db3-adb9-9be5ed76b34b-0-0": {
-    "display_name": "Dark Ritual -- Masters 25 -- 82"
-  },
   "16e040c3-bf42-4a5b-aeb3-5dc9921151e5-1-0": {
     "display_name": "Death's Shadow -- Worldwake -- 57 -- Foil"
   },
@@ -413,9 +410,6 @@
   "fd4b7ee2-de65-4288-872d-486065a4f226-0-0": {
     "display_name": "Tamiyo's Safekeeping -- Kamigawa: Neon Dynasty -- 211"
   },
-  "c38d1722-96b0-4756-9da9-fe18b1c80649-0-0": {
-    "display_name": "Teferi's Ageless Insight -- Core Set 2021 -- 76"
-  },
   "a7f56fbb-c88a-4d10-a6c1-fef72403c4b9-0-0": {
     "display_name": "Teferi's Protection (Full Art) -- Strixhaven Mystical Archive -- 74"
   },
@@ -466,6 +460,9 @@
   },
   "47fde349-010e-4a2e-838e-e924dbeec355-0-0": {
     "display_name": "Watery Grave -- Gatecrash -- 249"
+  },
+  "3484e885-253e-41dc-a541-1576debc9884-0-0": {
+    "display_name": "Windfall -- Commander 2020 -- 128"
   },
   "e7b28650-cddc-4878-b1d1-b5a764f4df49-0-0": {
     "display_name": "Windswept Heath -- Khans of Tarkir -- 248"
