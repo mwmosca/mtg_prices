@@ -86,6 +86,9 @@
   "05cf51d8-9f91-42ff-99e9-4397f2251c20-0-0": {
     "display_name": "Dark Confidant -- Modern Masters 2015 -- 75"
   },
+  "95f27eeb-6f14-4db3-adb9-9be5ed76b34b-0-0": {
+    "display_name": "Dark Ritual -- Masters 25 -- 82"
+  },
   "16e040c3-bf42-4a5b-aeb3-5dc9921151e5-1-0": {
     "display_name": "Death's Shadow -- Worldwake -- 57 -- Foil"
   },
@@ -205,9 +208,6 @@
   },
   "6683416a-5820-4cd0-b28a-60a53239e9ef-0-0": {
     "display_name": "Lithoform Engine -- Zendikar Rising -- 245"
-  },
-  "59faa45d-868b-4bc7-934c-0e077642e129-0-0": {
-    "display_name": "Loran of the Third Path -- The Brothers' War -- 12"
   },
   "69d97af0-8af0-4124-b56f-2633d34e5574-0-0": {
     "display_name": "Lotho, Corrupt Shirriff (Extended Art) -- The Lord of the Rings: Tales of Middle-earth -- 370"
@@ -409,6 +409,9 @@
   },
   "fd4b7ee2-de65-4288-872d-486065a4f226-0-0": {
     "display_name": "Tamiyo's Safekeeping -- Kamigawa: Neon Dynasty -- 211"
+  },
+  "c38d1722-96b0-4756-9da9-fe18b1c80649-0-0": {
+    "display_name": "Teferi's Ageless Insight -- Core Set 2021 -- 76"
   },
   "a7f56fbb-c88a-4d10-a6c1-fef72403c4b9-0-0": {
     "display_name": "Teferi's Protection (Full Art) -- Strixhaven Mystical Archive -- 74"
