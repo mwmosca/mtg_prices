@@ -2,7 +2,7 @@ import requests
 from time import sleep
 
 BATCH_SIZE_MAX = 75      # A collection request may contain a maximum of 75 cards
-COOLDOWN_MIN   = 0.1     # Limit requests to 10/second on average
+COOLDOWN_MIN   = 0.5     # Limit requests to 2/second on average
 HOSTNAME       = 'api.scryfall.com'
 SCHEME         = 'https' # API requests are only served over HTTPS, using TLS 1.2 or better. Requests will not be honored over plaintext HTTP.
 
