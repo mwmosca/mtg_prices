@@ -206,9 +206,6 @@
   "6683416a-5820-4cd0-b28a-60a53239e9ef-0-0": {
     "display_name": "Lithoform Engine -- Zendikar Rising -- 245"
   },
-  "59faa45d-868b-4bc7-934c-0e077642e129-0-0": {
-    "display_name": "Loran of the Third Path -- The Brothers' War -- 12"
-  },
   "69d97af0-8af0-4124-b56f-2633d34e5574-0-0": {
     "display_name": "Lotho, Corrupt Shirriff (Extended Art) -- The Lord of the Rings: Tales of Middle-earth -- 370"
   },
@@ -271,9 +268,6 @@
   },
   "15856326-d943-476a-9d31-898b9f990bb6-0-0": {
     "display_name": "Panharmonicon -- Kaladesh -- 226"
-  },
-  "55707746-da6e-46e5-a5ca-7ac843fdc38e-0-0": {
-    "display_name": "Phelia, Exuberant Shepherd -- Modern Horizons 3 -- 40"
   },
   "a2cfcf67-f83c-43af-9e2d-5513fcdde835-0-0": {
     "display_name": "Plaza of Heroes -- Dominaria United -- 252"
@@ -490,5 +484,14 @@
   },
   "a50267d1-f4b7-494f-b50b-cfb08b760b47-0-0": {
     "display_name": "Prosperous Partnership -- New Capenna Commander -- 78"
+  },
+  "e93d3a9f-abc2-4f63-a74d-e5936609386f-1-0": {
+    "display_name": "Flagstones of Trokair -- Ultimate Masters -- 243 -- Foil"
+  },
+  "f892d156-371c-4391-8ae6-25513c5032b0-1-0": {
+    "display_name": "Clarion Conqueror -- Tarkir: Dragonstorm -- 5 -- Foil"
+  },
+  "d562bd6e-6e13-4309-bf80-3c10570741bf-0-0": {
+    "display_name": "Ephemerate -- The List -- MH1-7"
   }
 }
