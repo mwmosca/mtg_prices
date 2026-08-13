@@ -155,9 +155,6 @@
   "1ab640f0-72cf-4659-98fd-20d0bb787e40-1-0": {
     "display_name": "Griselbrand (Promo) -- Grand Prix Promos -- 2015 -- Foil"
   },
-  "461987da-8860-4a04-8f93-d182523ca311-0-0": {
-    "display_name": "Gut Shot -- Modern Masters 2015 -- 117"
-  },
   "af7091c9-5f98-4078-a42b-c9e057346d9b-0-0": {
     "display_name": "Hallowed Fountain -- Return to Ravnica -- 241"
   },
@@ -493,5 +490,8 @@
   },
   "d562bd6e-6e13-4309-bf80-3c10570741bf-0-0": {
     "display_name": "Ephemerate -- The List -- MH1-7"
+  },
+  "ee241079-1e5a-4224-b9cb-4fd3e0da687c-0-0": {
+    "display_name": "Orim's Chant -- Modern Horizons 3 -- 265"
   }
 }
