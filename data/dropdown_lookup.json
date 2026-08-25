@@ -89,6 +89,9 @@
   "05cf51d8-9f91-42ff-99e9-4397f2251c20-0-0": {
     "display_name": "Dark Confidant -- Modern Masters 2015 -- 75"
   },
+  "95f27eeb-6f14-4db3-adb9-9be5ed76b34b-0-0": {
+    "display_name": "Dark Ritual -- Masters 25 -- 82"
+  },
   "16e040c3-bf42-4a5b-aeb3-5dc9921151e5-1-0": {
     "display_name": "Death's Shadow -- Worldwake -- 57 -- Foil"
   },
@@ -172,9 +175,6 @@
   },
   "4c9c9b16-5567-4473-95e6-622292f77336-0-0": {
     "display_name": "Hydroblast -- Eternal Masters -- 55"
-  },
-  "f5a08d47-fe06-4040-89f9-27dccad7c275-0-0": {
-    "display_name": "Illusionist's Bracers (Retro Frame) -- Ravnica Remastered -- 392"
   },
   "05bd329b-5707-42fc-af1c-084cc604e805-0-0": {
     "display_name": "Imperial Recruiter -- Modern Horizons 2 -- 281"
@@ -280,6 +280,9 @@
   },
   "55707746-da6e-46e5-a5ca-7ac843fdc38e-0-0": {
     "display_name": "Phelia, Exuberant Shepherd -- Modern Horizons 3 -- 40"
+  },
+  "ca8fb179-7e81-4b20-8b81-ea1aa97afe58-1-0": {
+    "display_name": "Plains (Full Art) -- Kamigawa: Neon Dynasty -- 293 -- Foil"
   },
   "a2cfcf67-f83c-43af-9e2d-5513fcdde835-0-0": {
     "display_name": "Plaza of Heroes -- Dominaria United -- 252"
@@ -395,6 +398,9 @@
   "acfcf183-9c87-4a62-988c-3bedc9d87c12-0-0": {
     "display_name": "Sudden Spoiling -- Commander 2014 -- 164"
   },
+  "4550b26a-3a73-4724-99d5-1e0a52c36701-0-0": {
+    "display_name": "Summoner's Pact -- Masters 25 -- 189"
+  },
   "948b026c-cfce-462b-afb6-7a383bd121de-0-0": {
     "display_name": "Summoner's Pact -- Future Sight -- 139"
   },
@@ -478,6 +484,9 @@
   },
   "e7b28650-cddc-4878-b1d1-b5a764f4df49-0-0": {
     "display_name": "Windswept Heath -- Khans of Tarkir -- 248"
+  },
+  "62061e7c-cf19-4f03-b8fa-2bdba62d6b0b-0-0": {
+    "display_name": "Witch Enchanter // Witch-Blessed Meadow -- Modern Horizons 3 -- 239"
   },
   "a8503cca-7e7d-44c4-8587-81376b396398-0-0": {
     "display_name": "Wooded Foothills -- Khans of Tarkir -- 249"
