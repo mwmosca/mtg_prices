@@ -164,6 +164,9 @@
   "af7091c9-5f98-4078-a42b-c9e057346d9b-0-0": {
     "display_name": "Hallowed Fountain -- Return to Ravnica -- 241"
   },
+  "b851c41b-ed73-4ee4-9063-544f97f35f67-0-0": {
+    "display_name": "Hengegate Pathway // Mistgate Pathway (Full Art) -- Kaldheim -- 293"
+  },
   "135b6adb-5c9c-4852-8c2a-c6f6d9bf96b1-1-0": {
     "display_name": "Honden of Night's Reach -- Eternal Masters -- 91 -- Foil"
   },
@@ -434,9 +437,6 @@
   "3b214b6f-4734-4200-8467-92d7e3469b5d-0-0": {
     "display_name": "Tezzeret the Seeker -- Shards of Alara -- 60"
   },
-  "bffc360e-db41-48f3-9365-680d55046e04-0-0": {
-    "display_name": "Thought-Knot Seer -- Oath of the Gatewatch -- 9"
-  },
   "310a1c46-8331-4a09-9fcb-d942f8102364-0-0": {
     "display_name": "Thoughtseize -- Iconic Masters -- 110"
   },
@@ -487,9 +487,6 @@
   },
   "e7b28650-cddc-4878-b1d1-b5a764f4df49-0-0": {
     "display_name": "Windswept Heath -- Khans of Tarkir -- 248"
-  },
-  "62061e7c-cf19-4f03-b8fa-2bdba62d6b0b-0-0": {
-    "display_name": "Witch Enchanter // Witch-Blessed Meadow -- Modern Horizons 3 -- 239"
   },
   "a8503cca-7e7d-44c4-8587-81376b396398-0-0": {
     "display_name": "Wooded Foothills -- Khans of Tarkir -- 249"
