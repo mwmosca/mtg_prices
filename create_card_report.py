@@ -34,7 +34,8 @@ def main() -> None:
         try:
             if 'extendedart' in c['frame_effects']:               mods += 'Extended Art, '
             if 'showcase'    in c['frame_effects']:               mods += 'Showcase, '
-        except KeyError: pass
+        except KeyError: 
+            print(f'Card {c["id"]} does not have frame effects.')
 
         if len(mods) > 0: c['name_'] = f'{c["name"]} ({mods[:len(mods) - 2]})'
         else:             c['name_'] = c['name']
