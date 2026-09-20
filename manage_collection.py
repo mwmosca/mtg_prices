@@ -1,6 +1,7 @@
+import requests
+import webbrowser
 from dotenv import load_dotenv
 from os import getenv
-import requests
 from scryfall_utils import HOSTNAME, SCHEME
 
 def main() -> None:
@@ -17,13 +18,26 @@ def main() -> None:
     with requests.Session() as session:
         session.headers.update(headers)
 
-        set_code         = input('Gimme the set code: ')
-        collector_number = input('Gimme the collector number: ')
-        response = session.get(url + set_code + '/' + collector_number)
-        response.raise_for_status()
-        response_body = response.json()
-        print(response_body)
+        while True:
+            set_code         = input('Gimme the set code: ')
+            collector_number = input('Gimme the collector number: ')
+            response = session.get(url + set_code + '/' + collector_number)
 
+            try:
+                response.raise_for_status()
+            except requests.exceptions.HTTPError as e:
+                print(e)
+                print()
+                continue
+
+            response_body = response.json()
+            webbrowser.open(response_body['scryfall_uri'])
+
+            user_input = input('Does this look right? [y/N]:')
+            if user_input.lower() != 'y':
+                continue
+
+            # Processing code to be implemented
 
 if __name__ == '__main__':
     main()
