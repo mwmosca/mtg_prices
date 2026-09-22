@@ -1,8 +1,8 @@
 import requests
-import webbrowser
 from dotenv import load_dotenv
 from os import getenv
 from scryfall_utils import HOSTNAME, SCHEME
+from webbrowser import open as webbrowser_open
 
 def main() -> None:
     load_dotenv()
@@ -34,7 +34,7 @@ def main() -> None:
                 continue
 
             response_body = response.json()
-            webbrowser.open(response_body['uri'])
+            webbrowser_open(response_body['uri'])
 
             user_input = input('Does this look right? [y/N]:')
             if user_input.lower() != 'y':
