@@ -59,7 +59,7 @@ def main() -> None:
 
             done_flag = input('Done yet? [y/N]: ').lower()
 
-    collection_df.to_csv(collection_file)
+    collection_df.to_csv(collection_file, index=False)
 
 if __name__ == '__main__':
     main()
