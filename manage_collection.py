@@ -31,6 +31,17 @@ def main() -> None:
             collector_number = input('Gimme the collector number: ')
             language_code    = input('Gimme the language code: ')
             foil_or_etched   = input('Is it [f]oil or [e]tched? ').lower()
+            quantity         = int(input('How many? '))
+
+            if foil_or_etched == 'f':
+                foil   = 1
+                etched = 0
+            elif foil_or_etched == 'e':
+                foil   = 0
+                etched = 1
+            else:
+                foil   = 0
+                etched = 0
 
             response = session.get(url + set_code + '/' + collector_number + '/' + language_code)
 
@@ -51,13 +62,28 @@ def main() -> None:
 
             locator_df = collection_df.loc[
                   (collection_df.id     == response_body['id'])
-                & (collection_df.foil   == (foil_or_etched == 'f'))
-                & (collection_df.etched == (foil_or_etched == 'e'))
+                & (collection_df.foil   == foil)
+                & (collection_df.etched == etched)
             ]
-            if len(locator_df) == 1:
-                collection_df.loc[locator_df.index[0], 'quantity'] += 1
+            records = len(locator_df)
+            if records == 1: # The card already exists in the database.
+                collection_df.loc[locator_df.index[0], 'quantity'] += quantity
+            elif records == 0: # The card does not yet exist in the database, so create a record for it.
+                collection_df = pd.concat([collection_df, pd.DataFrame([{
+                    'id'               : response_body['id'],
+                    'name'             : response_body['name'],
+                    'set_name'         : response_body['set_name'],
+                    'collector_number' : response_body['collector_number'],
+                    'url'              : response_body['uri'],
+                    'foil'             : foil,
+                    'etched'           : etched,
+                    'quantity'         : quantity
+                }])])
+            else: # This should never happen.
+                raise ValueError(f'Why are there {records} records for {response_body["id"]}?')
 
             done_flag = input('Done yet? [y/N]: ').lower()
+            print()
 
     collection_df.to_csv(collection_file, index=False)
 
