@@ -1,6 +1,8 @@
+import pandas as pd
 import requests
 from dotenv import load_dotenv
 from os import getenv
+from pathlib import Path
 from scryfall_utils import HOSTNAME, SCHEME
 from webbrowser import open as webbrowser_open
 
@@ -13,9 +15,10 @@ def main() -> None:
         'User-Agent'   : USER_AGENT,
         'Accept'       : ACCEPT,
     }
-
     url = f'{SCHEME}://{HOSTNAME}/cards/'
     # https://scryfall.com/docs/api/cards/collector
+
+    collection_df = pd.read_csv(Path('data', 'collection.csv'))
 
     with requests.Session() as session:
         session.headers.update(headers)
@@ -24,7 +27,9 @@ def main() -> None:
             set_code         = input('Gimme the set code: ')
             collector_number = input('Gimme the collector number: ')
             language_code    = input('Gimme the language code: ')
-            response         = session.get(url + set_code + '/' + collector_number + '/' + language_code)
+            foil_or_etched   = input('Is it [f]oil or [e]tched? ').lower()
+
+            response = session.get(url + set_code + '/' + collector_number + '/' + language_code)
 
             try:
                 response.raise_for_status()
@@ -34,14 +39,18 @@ def main() -> None:
                 continue
 
             response_body = response.json()
-            webbrowser_open(response_body['uri'])
+            webbrowser_open(response_body['scryfall_uri'])
 
-            user_input = input('Does this look right? [y/N]:')
-            if user_input.lower() != 'y':
+            user_input = input('Does this look right? [y/N]:').lower()
+            if user_input != 'y':
                 print()
                 continue
 
-            # Processing code to be implemented
+            collection_df.loc[
+                  (collection_df.id     == response_body['id'])
+                & (collection_df.foil   == (foil_or_etched == 'f'))
+                & (collection_df.etched == (foil_or_etched == 'e'))
+            ]
 
 if __name__ == '__main__':
     main()
