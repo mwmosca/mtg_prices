@@ -18,12 +18,15 @@ def main() -> None:
     url = f'{SCHEME}://{HOSTNAME}/cards/'
     # https://scryfall.com/docs/api/cards/collector
 
-    collection_df = pd.read_csv(Path('data', 'collection.csv'))
+    # Import collection
+    collection_file = Path('data', 'collection.csv')
+    collection_df = pd.read_csv(collection_file)
 
     with requests.Session() as session:
         session.headers.update(headers)
 
-        while True:
+        done_flag = ''
+        while done_flag != 'y':
             set_code         = input('Gimme the set code: ')
             collector_number = input('Gimme the collector number: ')
             language_code    = input('Gimme the language code: ')
@@ -46,11 +49,17 @@ def main() -> None:
                 print()
                 continue
 
-            collection_df.loc[
+            locator_df = collection_df.loc[
                   (collection_df.id     == response_body['id'])
                 & (collection_df.foil   == (foil_or_etched == 'f'))
                 & (collection_df.etched == (foil_or_etched == 'e'))
             ]
+            if len(locator_df) == 1:
+                collection_df.loc[locator_df.index[0], 'quantity'] += 1
+
+            done_flag = input('Done yet? [y/N]: ').lower()
+
+    collection_df.to_csv(collection_file)
 
 if __name__ == '__main__':
     main()
