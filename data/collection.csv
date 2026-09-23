@@ -1,4 +1,4 @@
-﻿id,name,set_name,collector_number,url,foil,etched,quantity
+id,name,set_name,collector_number,url,foil,etched,quantity
 2ff15389-10a1-49d7-b1c2-d7a13e151612,Abyssal Persecutor,Commander 2014,132,https://api.scryfall.com/cards/2ff15389-10a1-49d7-b1c2-d7a13e151612,0,0,1
 9af53a53-d30a-4289-a043-953cd81ee241,Abzan Ascendancy,Khans of Tarkir,160,https://api.scryfall.com/cards/9af53a53-d30a-4289-a043-953cd81ee241,0,0,1
 21ee4f3c-dc94-4156-b0ed-60fe6310451a,Abzan Falconer,Khans of Tarkir,2,https://api.scryfall.com/cards/21ee4f3c-dc94-4156-b0ed-60fe6310451a,1,0,1
@@ -854,3 +854,18 @@ f892d156-371c-4391-8ae6-25513c5032b0,Clarion Conqueror,Tarkir: Dragonstorm,5,htt
 f892d156-371c-4391-8ae6-25513c5032b0,Clarion Conqueror,Tarkir: Dragonstorm,5,https://api.scryfall.com/cards/f892d156-371c-4391-8ae6-25513c5032b0,1,0,2
 d562bd6e-6e13-4309-bf80-3c10570741bf,Ephemerate,The List,MH1-7,https://api.scryfall.com/cards/d562bd6e-6e13-4309-bf80-3c10570741bf,0,0,1
 ee241079-1e5a-4224-b9cb-4fd3e0da687c,Orim's Chant,Modern Horizons 3,265,https://api.scryfall.com/cards/ee241079-1e5a-4224-b9cb-4fd3e0da687c,0,0,1
+8c6a6d11-45cb-4def-a04b-51b91e1747db,Moon Girl and Devil Dinosaur,Marvel Super Heroes,223,https://api.scryfall.com/cards/8c6a6d11-45cb-4def-a04b-51b91e1747db,0,0,1
+6b39d7a6-ca2d-4376-a18e-efd0138e83bc,Castle Doom,Marvel Super Heroes,263,https://api.scryfall.com/cards/6b39d7a6-ca2d-4376-a18e-efd0138e83bc,0,0,1
+c91e28db-307f-462a-88aa-581d10e77f10,Training Compound,Marvel Super Heroes,275,https://api.scryfall.com/cards/c91e28db-307f-462a-88aa-581d10e77f10,1,0,1
+c01afea6-645d-4d4f-bdaa-90794a628bcd,Vision Quest,Marvel Super Heroes,237,https://api.scryfall.com/cards/c01afea6-645d-4d4f-bdaa-90794a628bcd,0,0,1
+3e121d65-d341-40b9-bebc-1e7d1b83905c,"Ares, God of War",Marvel Super Heroes,202,https://api.scryfall.com/cards/3e121d65-d341-40b9-bebc-1e7d1b83905c,0,0,1
+72d3e750-870b-497d-80d7-e3df097db554,Avengers Disassembled,Marvel Super Heroes,124,https://api.scryfall.com/cards/72d3e750-870b-497d-80d7-e3df097db554,0,0,1
+0473a990-88c4-4921-a492-377d9171318a,Scientist Supreme of A.I.M.,Marvel Super Heroes,225,https://api.scryfall.com/cards/0473a990-88c4-4921-a492-377d9171318a,0,0,1
+ac3e586c-d654-4631-beda-a5e29cf04717,"Elektra, Daughter of the Hand",Marvel Super Heroes,97,https://api.scryfall.com/cards/ac3e586c-d654-4631-beda-a5e29cf04717,0,0,1
+11fc8221-756a-4919-9272-38793e9c1ad9,Super-Skrull,Marvel Super Heroes,115,https://api.scryfall.com/cards/11fc8221-756a-4919-9272-38793e9c1ad9,0,0,1
+f498c1a4-54d2-4e87-952f-8cf7e408930c,Thunderbolts Conspiracy,Marvel Super Heroes,117,https://api.scryfall.com/cards/f498c1a4-54d2-4e87-952f-8cf7e408930c,0,0,1
+8e651410-b829-4468-b866-a9dd15f909ad,S.H.I.E.L.D. Flying Car,Marvel Super Heroes,74,https://api.scryfall.com/cards/8e651410-b829-4468-b866-a9dd15f909ad,0,0,1
+0d4265fd-cbfa-4e57-89fd-a1d757acfe81,"Taskmaster, Mercenary Mimic",Marvel Super Heroes,232,https://api.scryfall.com/cards/0d4265fd-cbfa-4e57-89fd-a1d757acfe81,0,0,1
+8c1467b1-ff2c-4f73-91ba-bc2b07afc2c3,Island,Marvel Super Heroes,279,https://api.scryfall.com/cards/8c1467b1-ff2c-4f73-91ba-bc2b07afc2c3,0,0,1
+ca70c59a-e91d-4ffc-9249-06c945cb8b33,"Silverquill, the Disputant",Secrets of Strixhaven Promos,226p,https://api.scryfall.com/cards/ca70c59a-e91d-4ffc-9249-06c945cb8b33,1,0,1
+d1cf5878-afb5-4eaf-9fd0-3f9062183968,Wildgrowth Archaic,Secrets of Strixhaven Promos,168p,https://api.scryfall.com/cards/d1cf5878-afb5-4eaf-9fd0-3f9062183968,1,0,1
