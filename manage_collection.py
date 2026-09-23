@@ -31,7 +31,12 @@ def main() -> None:
             collector_number = input('Gimme the collector number: ')
             language_code    = input('Gimme the language code: ')
             foil_or_etched   = input('Is it [f]oil or [e]tched? ').lower()
-            quantity         = int(input('How many? '))
+            try:
+                quantity     = int(input('How many? '))
+            except ValueError:
+                print('The quantity needs to be an integer.')
+                print()
+                continue
 
             # Set flags for foiling/etching
             if foil_or_etched == 'f':
@@ -92,7 +97,11 @@ def main() -> None:
             done_flag = input('Done yet? [y/N]: ').lower()
             print()
 
-    collection_df.to_csv(collection_file, index=False)
+    confirm_overwrite = input('Overwrite collection? [y/N]').lower()
+    if confirm_overwrite == 'y':
+        collection_df.to_csv(collection_file, index=False)
+    else:
+        print('Overwrite cancelled.')
 
 if __name__ == '__main__':
     main()
