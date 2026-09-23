@@ -59,6 +59,7 @@ def main() -> None:
             webbrowser_open(response_body['scryfall_uri'])
             user_input = input('Does this look right? [y/N]:').lower()
             if user_input != 'y':
+                print('-- CARD SKIPPED --')
                 print()
                 continue
 
@@ -70,8 +71,11 @@ def main() -> None:
             ]
             records = len(locator_df)
             if records == 1: # The card already exists in the collection.
+                print(f'Adding {quantity} {response_body['name']}')
                 collection_df.loc[locator_df.index[0], 'quantity'] += quantity
             elif records == 0: # The card does not yet exist in the collection, so create a record for it.
+                print(f'Creating a new record for {response_body['name']}')
+                print(f'Adding {quantity} copies.')
                 collection_df = pd.concat([collection_df, pd.DataFrame([{
                     'id'               : response_body['id'],
                     'name'             : response_body['name'],
