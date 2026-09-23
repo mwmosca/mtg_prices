@@ -33,6 +33,7 @@ def main() -> None:
             foil_or_etched   = input('Is it [f]oil or [e]tched? ').lower()
             quantity         = int(input('How many? '))
 
+            # Set flags for foiling/etching
             if foil_or_etched == 'f':
                 foil   = 1
                 etched = 0
@@ -43,32 +44,34 @@ def main() -> None:
                 foil   = 0
                 etched = 0
 
+            # Get the card
             response = session.get(url + set_code + '/' + collector_number + '/' + language_code)
-
+            # Check for valid response
             try:
                 response.raise_for_status()
             except requests.exceptions.HTTPError as e:
                 print(e)
                 print()
                 continue
-
             response_body = response.json()
-            webbrowser_open(response_body['scryfall_uri'])
 
+            # Let the user manually inspect the card
+            webbrowser_open(response_body['scryfall_uri'])
             user_input = input('Does this look right? [y/N]:').lower()
             if user_input != 'y':
                 print()
                 continue
 
+            # Check if the card already exists in the collection.
             locator_df = collection_df.loc[
                   (collection_df.id     == response_body['id'])
                 & (collection_df.foil   == foil)
                 & (collection_df.etched == etched)
             ]
             records = len(locator_df)
-            if records == 1: # The card already exists in the database.
+            if records == 1: # The card already exists in the collection.
                 collection_df.loc[locator_df.index[0], 'quantity'] += quantity
-            elif records == 0: # The card does not yet exist in the database, so create a record for it.
+            elif records == 0: # The card does not yet exist in the collection, so create a record for it.
                 collection_df = pd.concat([collection_df, pd.DataFrame([{
                     'id'               : response_body['id'],
                     'name'             : response_body['name'],
