@@ -186,7 +186,7 @@ Ensnaring Bridge,Masters 25,224,https://api.scryfall.com/cards/cd8dc8a5-3b53-486
 Ephemerate,Modern Horizons,7,https://api.scryfall.com/cards/2da5f3f8-5eef-498f-ba2c-2f3fbc3745aa,0,0,1,5.13
 Ephemerate (Showcase),Strixhaven Mystical Archive,5,https://api.scryfall.com/cards/7be5092f-cd24-4aea-824e-67b9767019b2,1,0,1,17.44
 Ephemerate (Showcase),Strixhaven Mystical Archive,5,https://api.scryfall.com/cards/7be5092f-cd24-4aea-824e-67b9767019b2,0,0,1,8.20
-Esper Sentinel,Modern Horizons 2,12,https://api.scryfall.com/cards/f3537373-ef54-4578-9d05-6216420ee349,0,0,2,62.68
+Esper Sentinel,Modern Horizons 2,12,https://api.scryfall.com/cards/f3537373-ef54-4578-9d05-6216420ee349,0,0,2,62.32
 Essence Flux,Shadows over Innistrad,61,https://api.scryfall.com/cards/639bdbb5-8c2d-439d-bcea-dc54da9686ea,0,0,1,1.79
 Eternal Witness,Duel Decks: Izzet vs. Golgari,55,https://api.scryfall.com/cards/223d3782-f530-4efb-a0fd-088534b4d545,0,0,1,1.60
 Eternal Witness,Fifth Dawn,86,https://api.scryfall.com/cards/c7e10ca7-1e5d-4224-82cf-798a4d436d72,0,0,2,4.43
@@ -567,7 +567,7 @@ Snow-Covered Plains,Ice Age,367,https://api.scryfall.com/cards/cb3ac778-fb45-4fd
 Snow-Covered Plains (Full Art),Modern Horizons,250,https://api.scryfall.com/cards/7a961768-6166-4852-b518-23eb4cced47d,0,0,5,0.89
 Snow-Covered Swamp,Kaldheim,280,https://api.scryfall.com/cards/6aa85af8-15f5-4620-8aea-0b45c28372ed,0,0,1,0.48
 Sol Ring,Commander 2014,270,https://api.scryfall.com/cards/b79cb394-eb91-4b3b-91d4-c6a0f723feb1,0,0,1,1.89
-Sol Ring,Commander 2019,221,https://api.scryfall.com/cards/e672d408-997c-4a19-810a-3da8411eecf2,0,0,1,2.20
+Sol Ring,Commander 2019,221,https://api.scryfall.com/cards/e672d408-997c-4a19-810a-3da8411eecf2,0,0,1,2.19
 Solemn Simulacrum,Mirrodin,245,https://api.scryfall.com/cards/00f9955f-a522-47bf-b064-92dd21a76b18,0,0,1,1.51
 Solitude,Modern Horizons 2,32,https://api.scryfall.com/cards/47a6234f-309f-4e03-9263-66da48b57153,0,0,4,35.64
 Sorcerous Spyglass,Ixalan,248,https://api.scryfall.com/cards/85506a24-8d60-475c-9f43-65994caca7d4,0,0,2,0.28
@@ -626,7 +626,7 @@ Swiftblade Vindicator (Promo),Guilds of Ravnica Promos,203s,https://api.scryfall
 Swiftfoot Boots,Commander 2014,275,https://api.scryfall.com/cards/4b224614-6374-4c42-8715-daa0b73ca05c,0,0,1,3.13
 Sword of Light and Shadow,Modern Masters,217,https://api.scryfall.com/cards/b662709a-d0b3-4c85-b849-6aedebb550eb,0,0,1,12.82
 Swords to Plowshares,Revised Edition,41,https://api.scryfall.com/cards/057d2410-30d3-4b7a-9dc3-f2512c1cf31c,0,0,2,7.97
-Swords to Plowshares,Eternal Masters,32,https://api.scryfall.com/cards/b6bafa7b-62a4-477c-b2f5-6b9d26c6cbf4,0,0,1,1.48
+Swords to Plowshares,Eternal Masters,32,https://api.scryfall.com/cards/b6bafa7b-62a4-477c-b2f5-6b9d26c6cbf4,0,0,1,1.51
 Swords to Plowshares,Iconic Masters,36,https://api.scryfall.com/cards/f3a0ae49-8aca-44fe-abea-2cff92a6adbc,0,0,2,3.40
 Syphon Mind,Commander 2014,165,https://api.scryfall.com/cards/d0be2d6e-e8c4-48e0-8fef-880642b0c7f4,0,0,1,0.39
 "Tajic, Legion's Edge",Guilds of Ravnica,204,https://api.scryfall.com/cards/5e669a01-84d3-4fcc-8396-9e987bd89b4f,1,0,1,0.57
