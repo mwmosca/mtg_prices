@@ -416,7 +416,7 @@ aaf7a821-3587-4aad-8411-fca5c96ab5c4,Mirran Crusader,Mirrodin Besieged,14,https:
 c5cd0d88-53b5-4560-bce0-910b3b7be946,Misty Rainforest,Modern Masters 2017,240,https://api.scryfall.com/cards/c5cd0d88-53b5-4560-bce0-910b3b7be946,0,0,4
 4206d5f8-edeb-4e0b-8e98-736f6ccdcf99,Momentary Blink,Modern Masters 2017,16,https://api.scryfall.com/cards/4206d5f8-edeb-4e0b-8e98-736f6ccdcf99,0,0,1
 58db2f81-6ff5-402c-8aef-0b667e82cdc4,Monastery Swiftspear,Iconic Masters,140,https://api.scryfall.com/cards/58db2f81-6ff5-402c-8aef-0b667e82cdc4,0,0,2
-c9fa6d4c-78dc-4b40-9ce8-a0e593d4001f,Moonfolk Puzzlemaker,Kamigawa: Neon Dynasty,68,https://api.scryfall.com/cards/c9fa6d4c-78dc-4b40-9ce8-a0e593d4001f,0,0,1
+c9fa6d4c-78dc-4b40-9ce8-a0e593d4001f,Moonfolk Puzzlemaker,Kamigawa: Neon Dynasty,68,https://api.scryfall.com/cards/c9fa6d4c-78dc-4b40-9ce8-a0e593d4001f,0,0,0
 d951be27-d0ad-42ff-9a20-d41a32500da5,Morkrut Banshee,Commander 2014,149,https://api.scryfall.com/cards/d951be27-d0ad-42ff-9a20-d41a32500da5,0,0,1
 0b1a46ab-95cb-4c24-924f-fc2afd4fcac7,Mother of Runes,Urza's Legacy,14,https://api.scryfall.com/cards/0b1a46ab-95cb-4c24-924f-fc2afd4fcac7,0,0,3
 fdf2354e-1232-452e-b89b-78ac8be206f7,Mother of Runes,Eternal Masters,22,https://api.scryfall.com/cards/fdf2354e-1232-452e-b89b-78ac8be206f7,0,0,1
@@ -458,7 +458,7 @@ bf472be9-f375-455e-a800-7af5258f4e59,Ob Nixilis of the Black Oath,Commander 2014
 4029c3a0-a999-453a-a838-7adb81e481ee,"Obzedat, Ghost Council",Modern Masters 2017,176,https://api.scryfall.com/cards/4029c3a0-a999-453a-a838-7adb81e481ee,0,0,1
 830d5f87-1c8b-414a-a91e-4805f5bdca54,Oddly Uneven,Unstable,15,https://api.scryfall.com/cards/830d5f87-1c8b-414a-a91e-4805f5bdca54,0,0,0
 a5f30ecd-d009-4d44-aef4-c926ed55a521,Omen of the Sea,Theros Beyond Death,58,https://api.scryfall.com/cards/a5f30ecd-d009-4d44-aef4-c926ed55a521,0,0,1
-1b635abe-ad7e-44b8-b3fe-6e365db87c29,Omenspeaker,Commander Legends,83,https://api.scryfall.com/cards/1b635abe-ad7e-44b8-b3fe-6e365db87c29,0,0,1
+1b635abe-ad7e-44b8-b3fe-6e365db87c29,Omenspeaker,Commander Legends,83,https://api.scryfall.com/cards/1b635abe-ad7e-44b8-b3fe-6e365db87c29,0,0,0
 4034e5ba-9974-43e3-bde7-8d9b4586c3a4,Once Upon a Time,Throne of Eldraine,169,https://api.scryfall.com/cards/4034e5ba-9974-43e3-bde7-8d9b4586c3a4,0,0,4
 66c3aa9f-5cb0-4c8d-a050-42938398071b,Opt,Ixalan,65,https://api.scryfall.com/cards/66c3aa9f-5cb0-4c8d-a050-42938398071b,0,0,4
 c9eb6441-c463-4b1e-a084-063f4a1301fe,Orator of Ojutai (Promo),Friday Night Magic 2015,9,https://api.scryfall.com/cards/c9eb6441-c463-4b1e-a084-063f4a1301fe,1,0,1
@@ -869,3 +869,19 @@ f498c1a4-54d2-4e87-952f-8cf7e408930c,Thunderbolts Conspiracy,Marvel Super Heroes
 8c1467b1-ff2c-4f73-91ba-bc2b07afc2c3,Island,Marvel Super Heroes,279,https://api.scryfall.com/cards/8c1467b1-ff2c-4f73-91ba-bc2b07afc2c3,0,0,1
 ca70c59a-e91d-4ffc-9249-06c945cb8b33,"Silverquill, the Disputant",Secrets of Strixhaven Promos,226p,https://api.scryfall.com/cards/ca70c59a-e91d-4ffc-9249-06c945cb8b33,1,0,1
 d1cf5878-afb5-4eaf-9fd0-3f9062183968,Wildgrowth Archaic,Secrets of Strixhaven Promos,168p,https://api.scryfall.com/cards/d1cf5878-afb5-4eaf-9fd0-3f9062183968,1,0,1
+0de529a7-bdc5-4581-a169-1ad123bc099a,Wizard's Staff,The Hobbit,59,https://api.scryfall.com/cards/0de529a7-bdc5-4581-a169-1ad123bc099a,0,0,1
+490dae91-94ce-42a9-a11f-6c5e77c4e486,Loyal Tutor,Reality Fracture,14,https://api.scryfall.com/cards/490dae91-94ce-42a9-a11f-6c5e77c4e486,1,0,1
+a53eb840-039d-4c45-b701-d58cb26b1a6c,Guiding Hydra,Reality Fracture,11,https://api.scryfall.com/cards/a53eb840-039d-4c45-b701-d58cb26b1a6c,0,0,1
+4589d911-1740-470d-9da5-7fbab448e184,Proctor of Potential,Reality Fracture,354,https://api.scryfall.com/cards/4589d911-1740-470d-9da5-7fbab448e184,0,0,1
+796b72af-5078-427d-b566-9bccad17090f,Plains,Reality Fracture,382,https://api.scryfall.com/cards/796b72af-5078-427d-b566-9bccad17090f,0,0,1
+20bb8c55-4b0b-425f-8201-b54fa2fdde86,"The Theorist, Jace Beleren",Reality Fracture,43,https://api.scryfall.com/cards/20bb8c55-4b0b-425f-8201-b54fa2fdde86,0,0,1
+0853bb80-8664-432a-8457-600139fd96d5,Diviner of Victory // Unwind History,Reality Fracture,28,https://api.scryfall.com/cards/0853bb80-8664-432a-8457-600139fd96d5,0,0,1
+686f3a25-305d-4f02-8972-eba7b8e9635f,Flickering Hound,Reality Fracture,7,https://api.scryfall.com/cards/686f3a25-305d-4f02-8972-eba7b8e9635f,0,0,1
+6f9f814b-8249-4e48-a05e-4c84060fe6fb,Kindred Judgment,Reality Fracture,13,https://api.scryfall.com/cards/6f9f814b-8249-4e48-a05e-4c84060fe6fb,0,0,1
+790dcf48-ab51-4b10-9933-6b7e3baf0f52,Forest,Reality Fracture,394,https://api.scryfall.com/cards/790dcf48-ab51-4b10-9933-6b7e3baf0f52,0,0,1
+00af4e87-5576-4a43-9422-4c35b2b66775,"Ruric Thar, Biomagus",Reality Fracture,219,https://api.scryfall.com/cards/00af4e87-5576-4a43-9422-4c35b2b66775,0,0,1
+85faaa9d-4656-4365-871d-7cba53ed0996,"Hapatra, the Desert Frost",Reality Fracture,215,https://api.scryfall.com/cards/85faaa9d-4656-4365-871d-7cba53ed0996,0,0,1
+960c7335-331d-488b-be68-2ad1c1c695dc,Divining Duelist,Reality Fracture,29,https://api.scryfall.com/cards/960c7335-331d-488b-be68-2ad1c1c695dc,0,0,1
+0fa5671b-2651-4944-a50a-c768ec70229e,Pyrotechnic Performer,Murders at Karlov Manor,140,https://api.scryfall.com/cards/0fa5671b-2651-4944-a50a-c768ec70229e,0,0,1
+b0244a1f-e696-4223-9c14-22c2ca3cb738,Herd Migration,Dominaria United,165,https://api.scryfall.com/cards/b0244a1f-e696-4223-9c14-22c2ca3cb738,0,0,1
+76610e6e-b60f-494f-bb11-68371eb494f2,Balustrade Wurm,Duskmourn: House of Horror,168,https://api.scryfall.com/cards/76610e6e-b60f-494f-bb11-68371eb494f2,0,0,1
