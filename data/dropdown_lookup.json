@@ -113,9 +113,6 @@
   "cd8dc8a5-3b53-4860-af60-6386e8c0010f-0-0": {
     "display_name": "Ensnaring Bridge -- Masters 25 -- 224"
   },
-  "2da5f3f8-5eef-498f-ba2c-2f3fbc3745aa-0-0": {
-    "display_name": "Ephemerate -- Modern Horizons -- 7"
-  },
   "7be5092f-cd24-4aea-824e-67b9767019b2-1-0": {
     "display_name": "Ephemerate (Showcase) -- Strixhaven Mystical Archive -- 5 -- Foil"
   },
@@ -308,6 +305,9 @@
   "c285b3a0-a27c-4416-a1b5-90219a5c7800-0-0": {
     "display_name": "Relic of Progenitus -- Modern Masters -- 213"
   },
+  "f92583e4-9749-4c11-9d32-fb81260c5b63-0-0": {
+    "display_name": "Reliquary Tower -- Magic 2013 -- 227"
+  },
   "50f23c47-278c-4188-8fb4-ae20a0c423c5-0-0": {
     "display_name": "Rhonas the Indomitable -- Amonkhet -- 182"
   },
@@ -478,6 +478,9 @@
   },
   "0279fd3c-9252-4958-9d7a-5f33aa25907e-0-0": {
     "display_name": "Whir of Invention -- Aether Revolt -- 49"
+  },
+  "3484e885-253e-41dc-a541-1576debc9884-0-0": {
+    "display_name": "Windfall -- Commander 2020 -- 128"
   },
   "e7b28650-cddc-4878-b1d1-b5a764f4df49-0-0": {
     "display_name": "Windswept Heath -- Khans of Tarkir -- 248"
