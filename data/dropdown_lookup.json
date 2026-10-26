@@ -113,6 +113,9 @@
   "cd8dc8a5-3b53-4860-af60-6386e8c0010f-0-0": {
     "display_name": "Ensnaring Bridge -- Masters 25 -- 224"
   },
+  "2da5f3f8-5eef-498f-ba2c-2f3fbc3745aa-0-0": {
+    "display_name": "Ephemerate -- Modern Horizons -- 7"
+  },
   "7be5092f-cd24-4aea-824e-67b9767019b2-1-0": {
     "display_name": "Ephemerate (Showcase) -- Strixhaven Mystical Archive -- 5 -- Foil"
   },
@@ -241,9 +244,6 @@
   },
   "9264ecb7-bfc0-495d-aaaa-829045ea858f-0-0": {
     "display_name": "Mystical Tutor -- Eternal Masters -- 62"
-  },
-  "6559047e-6ede-4815-a3a0-389062094f9d-0-0": {
-    "display_name": "Needleverge Pathway // Pillarverge Pathway -- Zendikar Rising -- 263"
   },
   "ae420b3f-2f5b-4a4a-8d3a-8e6a3288c35a-1-0": {
     "display_name": "Needleverge Pathway // Pillarverge Pathway (Full Art) -- Zendikar Rising -- 288 -- Foil"
@@ -427,9 +427,6 @@
   },
   "3b214b6f-4734-4200-8467-92d7e3469b5d-0-0": {
     "display_name": "Tezzeret the Seeker -- Shards of Alara -- 60"
-  },
-  "bffc360e-db41-48f3-9365-680d55046e04-0-0": {
-    "display_name": "Thought-Knot Seer -- Oath of the Gatewatch -- 9"
   },
   "310a1c46-8331-4a09-9fcb-d942f8102364-0-0": {
     "display_name": "Thoughtseize -- Iconic Masters -- 110"
