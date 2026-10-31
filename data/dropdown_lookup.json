@@ -80,9 +80,6 @@
   "05cf51d8-9f91-42ff-99e9-4397f2251c20-0-0": {
     "display_name": "Dark Confidant -- Modern Masters 2015 -- 75"
   },
-  "95f27eeb-6f14-4db3-adb9-9be5ed76b34b-0-0": {
-    "display_name": "Dark Ritual -- Masters 25 -- 82"
-  },
   "16e040c3-bf42-4a5b-aeb3-5dc9921151e5-1-0": {
     "display_name": "Death's Shadow -- Worldwake -- 57 -- Foil"
   },
@@ -344,9 +341,6 @@
   "7fc32f1d-dee7-4f71-a652-26a006e6020a-0-0": {
     "display_name": "Sigarda's Aid -- Eldritch Moon -- 41"
   },
-  "ac07e230-0297-4e1d-bdfe-119010e0ad8e-0-0": {
-    "display_name": "Silent Clearing -- Modern Horizons -- 246"
-  },
   "b987664f-0b74-4c0a-b306-14767a55559a-0-0": {
     "display_name": "Silverback Elder -- Dominaria United -- 177"
   },
@@ -445,6 +439,9 @@
   },
   "15faa763-b897-4e86-b094-73f3236291a9-0-0": {
     "display_name": "Verdant Catacombs -- Modern Masters 2017 -- 249"
+  },
+  "df606cf5-67dc-46f4-8c79-1d2f1d054391-0-0": {
+    "display_name": "Virtue of Knowledge // Vantress Visions -- Wilds of Eldraine -- 76"
   },
   "329a8738-3e17-403a-857a-0ba529ce8cd1-0-0": {
     "display_name": "Walking Ballista -- Aether Revolt -- 181"
