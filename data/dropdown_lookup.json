@@ -110,6 +110,9 @@
   "cd8dc8a5-3b53-4860-af60-6386e8c0010f-0-0": {
     "display_name": "Ensnaring Bridge -- Masters 25 -- 224"
   },
+  "2da5f3f8-5eef-498f-ba2c-2f3fbc3745aa-0-0": {
+    "display_name": "Ephemerate -- Modern Horizons -- 7"
+  },
   "7be5092f-cd24-4aea-824e-67b9767019b2-1-0": {
     "display_name": "Ephemerate (Showcase) -- Strixhaven Mystical Archive -- 5 -- Foil"
   },
@@ -356,9 +359,6 @@
   "47a6234f-309f-4e03-9263-66da48b57153-0-0": {
     "display_name": "Solitude -- Modern Horizons 2 -- 32"
   },
-  "d96266b3-a7cb-40ce-a328-ac13719fe5f0-0-0": {
-    "display_name": "Soul Warden -- Modern Masters 2017 -- 24"
-  },
   "74b4c336-5d4c-4bc5-b82a-35084a6ad808-0-0": {
     "display_name": "Spellseeker -- Battlebond -- 41"
   },
@@ -502,5 +502,8 @@
   },
   "20bb8c55-4b0b-425f-8201-b54fa2fdde86-0-0": {
     "display_name": "The Theorist, Jace Beleren -- Reality Fracture -- 43"
+  },
+  "686f3a25-305d-4f02-8972-eba7b8e9635f-0-0": {
+    "display_name": "Flickering Hound -- Reality Fracture -- 7"
   }
 }
