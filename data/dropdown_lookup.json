@@ -80,6 +80,9 @@
   "05cf51d8-9f91-42ff-99e9-4397f2251c20-0-0": {
     "display_name": "Dark Confidant -- Modern Masters 2015 -- 75"
   },
+  "95f27eeb-6f14-4db3-adb9-9be5ed76b34b-0-0": {
+    "display_name": "Dark Ritual -- Masters 25 -- 82"
+  },
   "16e040c3-bf42-4a5b-aeb3-5dc9921151e5-1-0": {
     "display_name": "Death's Shadow -- Worldwake -- 57 -- Foil"
   },
@@ -335,9 +338,6 @@
   "939c6e19-4b27-4023-bb9c-ae440f91e21c-0-0": {
     "display_name": "Shadowspear -- Theros Beyond Death -- 236"
   },
-  "c8f77d9d-5b34-4f44-9554-28b235a26710-1-0": {
-    "display_name": "Shamanic Revelation (Promo) -- Fate Reforged Promos -- 138s -- Foil"
-  },
   "7fc32f1d-dee7-4f71-a652-26a006e6020a-0-0": {
     "display_name": "Sigarda's Aid -- Eldritch Moon -- 41"
   },
@@ -355,6 +355,9 @@
   },
   "47a6234f-309f-4e03-9263-66da48b57153-0-0": {
     "display_name": "Solitude -- Modern Horizons 2 -- 32"
+  },
+  "d96266b3-a7cb-40ce-a328-ac13719fe5f0-0-0": {
+    "display_name": "Soul Warden -- Modern Masters 2017 -- 24"
   },
   "74b4c336-5d4c-4bc5-b82a-35084a6ad808-0-0": {
     "display_name": "Spellseeker -- Battlebond -- 41"
@@ -499,8 +502,5 @@
   },
   "20bb8c55-4b0b-425f-8201-b54fa2fdde86-0-0": {
     "display_name": "The Theorist, Jace Beleren -- Reality Fracture -- 43"
-  },
-  "686f3a25-305d-4f02-8972-eba7b8e9635f-0-0": {
-    "display_name": "Flickering Hound -- Reality Fracture -- 7"
   }
 }
